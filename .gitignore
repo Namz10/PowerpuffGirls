@@ -216,3 +216,10 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Challenge datasets (large; keep local only)
+*.tsv
+*.tsv.gz
+dataset/
+data/
+raw/
