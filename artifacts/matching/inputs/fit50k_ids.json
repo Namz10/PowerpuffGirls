@@ -1,0 +1,10 @@
+{
+  "count": 50000,
+  "seed": 42,
+  "strata": "country x gold-list bucket {0, 1, 2-3, 4-5, 6+}",
+  "excluded": [
+    "loop",
+    "report"
+  ],
+  "path": "artifacts/matching/inputs/fit50k_ids.txt"
+}
