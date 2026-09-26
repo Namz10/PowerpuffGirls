@@ -1,0 +1,2 @@
+# Install a CUDA-compatible PyTorch build for the host first.
+sentence-transformers>=3.0,<6

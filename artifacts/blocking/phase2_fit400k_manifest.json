@@ -1,0 +1,50 @@
+{
+  "algorithm": "largest-remainder by country x gold-list bucket, then Random(seed)",
+  "count": 400000,
+  "excluded_splits": [
+    "loop",
+    "report"
+  ],
+  "inputs": {
+    "fit_ids": {
+      "path": "src/eval/splits/fit_ids.txt",
+      "sha256": "206ba5c0c08e9bef9984ca6370e0845b84757d5d1a736b2de2c7db06982f9d42"
+    },
+    "loop_ids": {
+      "path": "src/eval/splits/loop_ids.txt",
+      "sha256": "ffc47cbc3b5585c2ac163335ec518a5efc220e5dd49066788cf97de796abe3ac"
+    },
+    "report_ids": {
+      "path": "src/eval/splits/report_ids.txt",
+      "sha256": "0f33644ee6a55a5d1df3ea176fe37aef56e1b3d6260f1037602d22d6002fa186"
+    },
+    "source1": {
+      "path": "dataset/train/train_source1.tsv",
+      "sha256": "591af0e1dfeb65cab71ea6ee8cb69df00f92d6ba6fa79e05746c938775d14973"
+    },
+    "truth": {
+      "path": "dataset/train/train_ground_truth.tsv",
+      "sha256": "70bc1d8a16c667e0155c2105d0ab2ebe41d7e7a85d8a529e3ca81c6c3a5af037"
+    }
+  },
+  "output": {
+    "path": "src/eval/splits/fit400k_ids.txt",
+    "sha256": "3f4918e1fa9de1b5128b1533c0bb673b4efb635d3146ceb87f0941e93d82bfce"
+  },
+  "schema_version": "phase2-fit-sample-v1",
+  "seed": 42,
+  "status": "frozen",
+  "strata": "country x gold-list bucket {0, 1, 2-3, 4-5, 6+}",
+  "stratum_counts": {
+    "India|0": 8945,
+    "India|1": 8604,
+    "India|2-3": 65595,
+    "India|4-5": 58547,
+    "India|6+": 18392,
+    "US|0": 13394,
+    "US|1": 12994,
+    "US|2-3": 98632,
+    "US|4-5": 87559,
+    "US|6+": 27338
+  }
+}

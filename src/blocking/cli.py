@@ -60,6 +60,33 @@ def parser() -> argparse.ArgumentParser:
     run2.add_argument("--report", type=Path, required=True)
     run2.add_argument("--resources", type=Path, default=Path("artifacts/resources"))
     run2.add_argument("--no-sweep", action="store_true")
+    semantic_build = commands.add_parser("phase2-semantic-build")
+    semantic_build.add_argument("--source2", type=Path, required=True)
+    semantic_build.add_argument("--source3", type=Path, required=True)
+    semantic_build.add_argument("--index", type=Path, required=True)
+    semantic_build.add_argument("--manifest", type=Path, required=True)
+    semantic_build.add_argument("--model")
+    semantic_build.add_argument("--device", choices=("cuda", "cpu"), default="cpu")
+    semantic_build.add_argument("--batch-size", type=int, default=64)
+    semantic_build.add_argument("--lsh-bits", type=int, default=16)
+    semantic_build.add_argument("--lsh-seed", type=int, default=42)
+    semantic_union = commands.add_parser("phase2-semantic-union")
+    semantic_union.add_argument("--semantic-index", type=Path, required=True)
+    semantic_union.add_argument("--source1", type=Path, required=True)
+    semantic_union.add_argument("--lexical", type=Path, required=True)
+    semantic_union.add_argument("--ids", type=Path)
+    semantic_union.add_argument("--output", type=Path, required=True)
+    semantic_union.add_argument("--provenance", type=Path)
+    semantic_union.add_argument("--report", type=Path, required=True)
+    semantic_union.add_argument("--model")
+    semantic_union.add_argument("--device", choices=("cuda", "cpu"), default="cpu")
+    semantic_union.add_argument("--batch-size", type=int, default=64)
+    semantic_union.add_argument("--semantic-top-k", type=int, default=10)
+    semantic_union.add_argument("--union-cap", type=int, default=60)
+    semantic_union.add_argument("--max-pool-per-source", type=int, default=2000)
+    semantic_union.add_argument("--probe-radius", type=int, choices=(0, 1, 2), default=1)
+    semantic_union.add_argument("--lsh-bits", type=int, default=16)
+    semantic_union.add_argument("--lsh-seed", type=int, default=42)
     return result
 
 
@@ -74,6 +101,50 @@ def main() -> None:
         manifest = build_phase2_index((args.source2, args.source3), args.index)
         write_json(manifest, args.manifest)
         print(json.dumps(manifest, indent=2, sort_keys=True))
+        return
+    if args.command == "phase2-semantic-build":
+        from .semantic import DEFAULT_MODEL, SemanticConfig, build_semantic_index
+
+        config = SemanticConfig(
+            device=args.device,
+            batch_size=args.batch_size,
+            lsh_bits=args.lsh_bits,
+            lsh_seed=args.lsh_seed,
+        )
+        manifest = build_semantic_index(
+            (args.source2, args.source3),
+            args.index,
+            args.manifest,
+            config,
+            args.model or DEFAULT_MODEL,
+        )
+        print(json.dumps(manifest, indent=2, sort_keys=True))
+        return
+    if args.command == "phase2-semantic-union":
+        from .semantic import SemanticConfig, union_semantic_candidates
+
+        config = SemanticConfig(
+            device=args.device,
+            batch_size=args.batch_size,
+            top_k=args.semantic_top_k,
+            union_cap=args.union_cap,
+            max_pool_per_source=args.max_pool_per_source,
+            probe_radius=args.probe_radius,
+            lsh_bits=args.lsh_bits,
+            lsh_seed=args.lsh_seed,
+        )
+        report = union_semantic_candidates(
+            args.semantic_index,
+            args.source1,
+            args.lexical,
+            args.output,
+            args.report,
+            config,
+            args.ids,
+            args.provenance,
+            args.model,
+        )
+        print(json.dumps(report, indent=2, sort_keys=True))
         return
     if args.command == "phase2-generate":
         requested = load_requested_ids(args.ids) if args.ids else None

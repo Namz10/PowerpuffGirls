@@ -750,22 +750,14 @@ def generate_phase2(
     sweep_quotas: Iterable[int] = RESCUE_QUOTA_SWEEP,
     resource_path: Path | None = None,
 ) -> dict:
-    """Generate union candidates and a leakage-safe diagnostic report."""
+    """Stream union candidates and produce a leakage-safe diagnostic report."""
     started = time.monotonic()
     index = Phase2Index(index_path)
     boilerplate_by_country, boilerplate_sha256 = _load_boilerplate(resource_path)
-    queries = []
-    for row in _source_rows(source1_path):
-        if requested_ids is None or row["entity_id"] in requested_ids:
-            queries.append(
-                canonicalize(
-                    row["entity_id"], row["business_name"], row["business_address"], row["country"]
-                )
-            )
-    if requested_ids is not None and {query.entity_id for query in queries} != requested_ids:
-        raise ValueError("requested Source 1 ids are not fully covered")
-    if truth is not None and set(truth) != {query.entity_id for query in queries}:
-        raise ValueError("truth must exactly cover generated Source 1 ids")
+    if truth is not None and requested_ids is None:
+        raise ValueError("truth requires an explicit frozen requested-id set")
+    if truth is not None and set(truth) != requested_ids:
+        raise ValueError("truth must exactly cover the frozen requested Source 1 ids")
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     provenance_handle = None
@@ -787,8 +779,11 @@ def generate_phase2(
     else:
         misses_writer = None
 
-    country_counts = Counter(query.country for query in queries)
-    comparison_space = index.comparison_space(country_counts)
+    country_counts: Counter[str] = Counter()
+    remaining_ids = set(requested_ids) if requested_ids is not None else None
+    source_order_ids = hashlib.sha256()
+    entity_count = 0
+    comparison_space = 0
     variants = {
         "raw_only": MetricAccumulator(),
         "canonical_only": MetricAccumulator(),
@@ -822,7 +817,20 @@ def generate_phase2(
         with output_path.open("w", encoding="utf-8", newline="") as output:
             writer = csv.writer(output, delimiter="\t", lineterminator="\n")
             writer.writerow(CANDIDATE_HEADER)
-            for query in queries:
+            for row in _source_rows(source1_path):
+                entity_id = row["entity_id"]
+                if requested_ids is not None and entity_id not in requested_ids:
+                    continue
+                if remaining_ids is not None:
+                    if entity_id not in remaining_ids:
+                        raise ValueError(f"duplicate requested Source 1 id: {entity_id}")
+                    remaining_ids.remove(entity_id)
+                query = canonicalize(
+                    entity_id, row["business_name"], row["business_address"], row["country"]
+                )
+                entity_count += 1
+                country_counts[query.country] += 1
+                source_order_ids.update(f"{query.entity_id}\n".encode("utf-8"))
                 boilerplate = boilerplate_by_country.get(
                     query.country, boilerplate_by_country.get("global", frozenset())
                 )
@@ -918,6 +926,11 @@ def generate_phase2(
                             reason,
                         )
                     )
+            if remaining_ids:
+                raise ValueError(
+                    f"requested Source 1 ids are not fully covered ({len(remaining_ids)} missing)"
+                )
+            comparison_space = index.comparison_space(country_counts)
     finally:
         index.close()
         if provenance_handle:
@@ -937,12 +950,17 @@ def generate_phase2(
         "index_sha256": sha256_file(index_path),
         "source1_file": str(source1_path),
         "source1_sha256": sha256_file(source1_path),
-        "requested_ids_sha256": _ids_sha256(query.entity_id for query in queries),
+        "requested_ids_sha256": (
+            _ids_sha256(requested_ids)
+            if requested_ids is not None
+            else source_order_ids.hexdigest()
+        ),
+        "requested_ids_hash_order": "sorted" if requested_ids is not None else "source1",
         "truth_sha256": _mapping_sha256(truth) if truth is not None else None,
         "boilerplate_sha256": boilerplate_sha256,
         "provenance_sha256": sha256_file(provenance_path) if provenance_path else None,
         "misses_sha256": sha256_file(misses_path) if misses_path else None,
-        "entities": len(queries),
+        "entities": entity_count,
         "elapsed_seconds": round(time.monotonic() - started, 3),
         "peak_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
     }

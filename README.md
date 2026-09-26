@@ -9,6 +9,7 @@ Business Entity Resolution Challenge.
 - [Phase 1 raw-blocker report](src/blocking/PHASE1_REPORT.md) — measured cap frontier and selected operating point.
 - [Candidate-to-matcher contract](src/blocking/CANDIDATE_CONTRACT.md) — exact inference-set and provenance schema.
 - [Provisional Phase 2 blocker](src/blocking/PHASE2_PROVISIONAL.md) — canonical/cross-script implementation, loop-only evaluation, and selection guardrails.
+- [Optional semantic retrieval](src/blocking/SEMANTIC_RETRIEVAL.md) — bounded SentenceTransformers indexing and lexical-candidate union on CPU or CUDA.
 - [Problem understanding and research](docs/problem_understanding_and_research.md) — background analysis and challenge constraints.
 - [Problem statement](docs/Problem%20Statement.pdf) and [challenge guidelines](docs/guidelines_and_key_instructions_amazon_ml_challenge_2026.pdf) — organizer-provided requirements.
 - [Documentation template](docs/Documentation_template.md) — required submission documentation structure.

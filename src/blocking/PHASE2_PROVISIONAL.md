@@ -6,6 +6,13 @@ selected, frozen, or approved as a Phase 2 gate**
 The Phase 2 blocker is isolated in `src/blocking/phase2.py`. It does not modify
 the frozen `phase1-raw-v1` implementation or its artifacts.
 
+The default path is CPU-first and streaming: raw/canonical records live in
+SQLite, every retrieval channel has a posting/pool bound, and only the selected
+candidate rows are written. It has no GPU, PyTorch, or model dependency. An
+optional bounded semantic challenger is documented in
+`src/blocking/SEMANTIC_RETRIEVAL.md`; it incrementally embeds only names and
+addresses and unions semantic top-K with these lexical candidates.
+
 ## Implemented channels
 
 - raw exact-name, exact-address, and rare-token fallback;
@@ -61,6 +68,27 @@ runtime and peak RSS; and input/output fingerprints.
   above zero and it lies on the supported recall/width Pareto frontier.
 - Do not create the 400k matcher handoff, freeze a Phase 2 configuration, or
   write `artifacts/gates/phase_2.json` until Phase 1 is green.
+
+## Deterministic 400k fit handoff
+
+Phase 1 is now green. The fit sample is generated independently of blocker
+selection, using the same fixed country × truth-cardinality stratification as
+the earlier capacity sample:
+
+```bash
+python3.11 -m src.blocking.phase2_freeze sample-fit \
+  --source1 dataset/train/train_source1.tsv \
+  --truth dataset/train/train_ground_truth.tsv \
+  --output src/eval/splits/fit400k_ids.txt \
+  --manifest artifacts/blocking/phase2_fit400k_manifest.json
+```
+
+Candidate generation for those IDs must omit `--truth` and use the exact
+loop-selected `--cap`, `--source-floor`, and `--rescue-quota`. After that run,
+`python3.11 -m src.blocking.phase2_freeze freeze` binds the eligible loop
+report, the 400k sample manifest, and the unlabeled fit report. It refuses
+mismatched configs, indexes, normalizer/token hashes, sample hashes, or entity
+counts. This blocker freeze is separate from the team-wide Phase 2 gate.
 
 ## Verification
 
