@@ -1,0 +1,67 @@
+{
+  "artifacts": {
+    "pack": {
+      "path": "src/eval/difficulty_pack/pack.tsv",
+      "rows": 330,
+      "sha256": "529371581c832fc73c6355ff615a050a78e43ffd316ce841776553f11476f6ae"
+    }
+  },
+  "columns": [
+    "source1_entity_id",
+    "related_entity_ids",
+    "kind",
+    "overlap_bucket",
+    "reason"
+  ],
+  "counts": {
+    "accented_latin": 30,
+    "easy_latin": 30,
+    "empty_address_match": 30,
+    "indic_other_side": 30,
+    "legal_suffix": 30,
+    "low_overlap": 30,
+    "multi_id": 30,
+    "singleton_isolated": 30,
+    "singleton_lookalike": 30,
+    "stolen_neighborhood_near_miss": 30,
+    "unmatched_distractor_near_miss": 30
+  },
+  "inputs": {
+    "fit_ids": {
+      "path": "src/eval/splits/fit_ids.txt",
+      "sha256": "206ba5c0c08e9bef9984ca6370e0845b84757d5d1a736b2de2c7db06982f9d42"
+    },
+    "train_ground_truth": {
+      "path": "../student_resource/dataset/train/train_ground_truth.tsv",
+      "sha256": "70bc1d8a16c667e0155c2105d0ab2ebe41d7e7a85d8a529e3ca81c6c3a5af037"
+    },
+    "train_source1": {
+      "path": "../student_resource/dataset/train/train_source1.tsv",
+      "sha256": "591af0e1dfeb65cab71ea6ee8cb69df00f92d6ba6fa79e05746c938775d14973"
+    },
+    "train_source2": {
+      "path": "../student_resource/dataset/train/train_source2.tsv",
+      "sha256": "6336c1a055eec79cf8a6d99fdc8d32a2e4d9dc2662e00963cb35d66b89ed09ed"
+    },
+    "train_source3": {
+      "path": "../student_resource/dataset/train/train_source3.tsv",
+      "sha256": "67da22f5151898ff3006febd836c1a159e97ae95efa7257a5aff4fda685e58e9"
+    }
+  },
+  "miner": {
+    "df_cap": 200,
+    "isolated_max": 0.1,
+    "low_overlap_max": 0.1,
+    "near_miss_min": 0.5,
+    "post_cap": 50
+  },
+  "per_kind_target": 30,
+  "probe_pools": {
+    "nonsingleton": 40000,
+    "singleton": 12000
+  },
+  "seed": 42,
+  "selection": "deterministic sort by (kind order, source1_entity_id); no RNG required",
+  "shortfall": {},
+  "total_rows": 330
+}

@@ -1,0 +1,189 @@
+{
+  "schema_version": "1.0",
+  "slices": [
+    {
+      "categories": [
+        "US",
+        "India",
+        "France",
+        "OTHER"
+      ],
+      "description": "Country label of the Source 1 entity. Open set of strings; never a {US, India} whitelist.",
+      "key": "country",
+      "level": "entity",
+      "open_set": true,
+      "parameters": {},
+      "phase_available": "phase1",
+      "source_fields": [
+        "source1.country"
+      ],
+      "value_type": "categorical"
+    },
+    {
+      "categories": [],
+      "description": "Gold match list is empty.",
+      "key": "singleton",
+      "level": "entity",
+      "open_set": false,
+      "parameters": {},
+      "phase_available": "phase1",
+      "source_fields": [
+        "ground_truth.matched_entity_ids"
+      ],
+      "value_type": "boolean"
+    },
+    {
+      "categories": [
+        "0",
+        "1",
+        "2-3",
+        "4-5",
+        "6+"
+      ],
+      "description": "Gold match-list length bucket. Length 11 folds into 6+.",
+      "key": "gold_list_bucket",
+      "level": "entity",
+      "open_set": false,
+      "parameters": {},
+      "phase_available": "phase1",
+      "source_fields": [
+        "ground_truth.matched_entity_ids"
+      ],
+      "value_type": "categorical"
+    },
+    {
+      "categories": [],
+      "description": "At least one gold S2/S3 match has an empty business_address. Source 1 addresses are never empty.",
+      "key": "target_empty_address",
+      "level": "entity",
+      "open_set": false,
+      "parameters": {},
+      "phase_available": "phase1",
+      "source_fields": [
+        "ground_truth.matched_entity_ids",
+        "source2.business_address",
+        "source3.business_address"
+      ],
+      "value_type": "boolean"
+    },
+    {
+      "categories": [
+        "none",
+        "s2_only",
+        "s3_only",
+        "both"
+      ],
+      "description": "Which sources the gold list draws from.",
+      "key": "source_composition",
+      "level": "entity",
+      "open_set": false,
+      "parameters": {},
+      "phase_available": "phase1",
+      "source_fields": [
+        "ground_truth.matched_entity_ids"
+      ],
+      "value_type": "categorical"
+    },
+    {
+      "categories": [],
+      "description": "Source 1 name is short. Cutoff frozen on fit character length and token count; not yet frozen.",
+      "key": "short_name",
+      "level": "entity",
+      "open_set": false,
+      "parameters": {
+        "frozen": false,
+        "frozen_on": "fit",
+        "max_chars": null,
+        "max_tokens": null
+      },
+      "phase_available": "phase1",
+      "source_fields": [
+        "source1.business_name"
+      ],
+      "value_type": "boolean"
+    },
+    {
+      "categories": [],
+      "description": "Source 1 name tokens are all boilerplate or very high document frequency. DF measured on fit text only; not yet frozen.",
+      "key": "generic_name",
+      "level": "entity",
+      "open_set": false,
+      "parameters": {
+        "df_source": "fit",
+        "frozen": false,
+        "frozen_on": "fit"
+      },
+      "phase_available": "phase1",
+      "source_fields": [
+        "source1.business_name"
+      ],
+      "value_type": "boolean"
+    },
+    {
+      "categories": [
+        "latin",
+        "accented_latin",
+        "indic"
+      ],
+      "description": "Script of the true S2/S3 target name against the always-Latin Source 1 name. Indic is separate from accented Latin.",
+      "key": "target_script_class",
+      "level": "entity",
+      "open_set": false,
+      "parameters": {},
+      "phase_available": "after_gold_join",
+      "source_fields": [
+        "source2.business_name",
+        "source3.business_name"
+      ],
+      "value_type": "categorical"
+    },
+    {
+      "categories": [],
+      "description": "A predicted match whose country differs from the Source 1 country.",
+      "key": "cross_country_prediction",
+      "level": "prediction",
+      "open_set": false,
+      "parameters": {},
+      "phase_available": "prediction_time",
+      "source_fields": [
+        "matching_results.matched_entity_ids"
+      ],
+      "value_type": "boolean"
+    },
+    {
+      "categories": [
+        "stolen_id",
+        "unmatched_distractor"
+      ],
+      "description": "For a predicted false id: stolen (gold for a different Source 1) vs unmatched distractor (gold for nobody).",
+      "key": "false_id_type",
+      "level": "prediction",
+      "open_set": false,
+      "parameters": {},
+      "phase_available": "prediction_time",
+      "source_fields": [
+        "matching_results.matched_entity_ids",
+        "ground_truth.matched_entity_ids"
+      ],
+      "value_type": "categorical"
+    },
+    {
+      "categories": [
+        "longer",
+        "equal",
+        "shorter"
+      ],
+      "description": "Predicted list length relative to the gold list.",
+      "key": "predicted_vs_gold_length",
+      "level": "prediction",
+      "open_set": false,
+      "parameters": {},
+      "phase_available": "prediction_time",
+      "source_fields": [
+        "matching_results.matched_entity_ids",
+        "ground_truth.matched_entity_ids"
+      ],
+      "value_type": "categorical"
+    }
+  ]
+}

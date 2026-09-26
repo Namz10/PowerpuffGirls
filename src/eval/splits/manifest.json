@@ -1,0 +1,126 @@
+{
+  "artifacts": {
+    "fit": {
+      "count": 1961144,
+      "path": "src/eval/splits/fit_ids.txt",
+      "sha256": "206ba5c0c08e9bef9984ca6370e0845b84757d5d1a736b2de2c7db06982f9d42"
+    },
+    "loop": {
+      "count": 25000,
+      "path": "src/eval/splits/loop_ids.txt",
+      "sha256": "ffc47cbc3b5585c2ac163335ec518a5efc220e5dd49066788cf97de796abe3ac"
+    },
+    "report": {
+      "count": 220677,
+      "path": "src/eval/splits/report_ids.txt",
+      "sha256": "0f33644ee6a55a5d1df3ea176fe37aef56e1b3d6260f1037602d22d6002fa186"
+    }
+  },
+  "countries": [
+    "India",
+    "US"
+  ],
+  "counts": {
+    "fit": 1961144,
+    "loop": 25000,
+    "report": 220677,
+    "source1": 2206821
+  },
+  "inputs": {
+    "train_ground_truth": {
+      "path": "../student_resource/dataset/train/train_ground_truth.tsv",
+      "sha256": "70bc1d8a16c667e0155c2105d0ab2ebe41d7e7a85d8a529e3ca81c6c3a5af037"
+    },
+    "train_source1": {
+      "path": "../student_resource/dataset/train/train_source1.tsv",
+      "sha256": "591af0e1dfeb65cab71ea6ee8cb69df00f92d6ba6fa79e05746c938775d14973"
+    }
+  },
+  "loop_rule": "largest remainder of 25000 proportional to stratum size, outside report",
+  "loop_size": 25000,
+  "python_required": "3.11",
+  "report_rule": "(stratum_size * 10) // 100",
+  "seed": 42,
+  "strata": [
+    {
+      "bucket": "0",
+      "country": "India",
+      "fit": 43857,
+      "loop": 559,
+      "report": 4935,
+      "size": 49351
+    },
+    {
+      "bucket": "1",
+      "country": "India",
+      "fit": 42184,
+      "loop": 538,
+      "report": 4746,
+      "size": 47468
+    },
+    {
+      "bucket": "2-3",
+      "country": "India",
+      "fit": 321603,
+      "loop": 4100,
+      "report": 36189,
+      "size": 361892
+    },
+    {
+      "bucket": "4-5",
+      "country": "India",
+      "fit": 287049,
+      "loop": 3659,
+      "report": 32300,
+      "size": 323008
+    },
+    {
+      "bucket": "6+",
+      "country": "India",
+      "fit": 90174,
+      "loop": 1149,
+      "report": 10146,
+      "size": 101469
+    },
+    {
+      "bucket": "0",
+      "country": "US",
+      "fit": 65670,
+      "loop": 837,
+      "report": 7389,
+      "size": 73896
+    },
+    {
+      "bucket": "1",
+      "country": "US",
+      "fit": 63709,
+      "loop": 812,
+      "report": 7168,
+      "size": 71689
+    },
+    {
+      "bucket": "2-3",
+      "country": "US",
+      "fit": 483580,
+      "loop": 6165,
+      "report": 54416,
+      "size": 544161
+    },
+    {
+      "bucket": "4-5",
+      "country": "US",
+      "fit": 429286,
+      "loop": 5472,
+      "report": 48306,
+      "size": 483064
+    },
+    {
+      "bucket": "6+",
+      "country": "US",
+      "fit": 134032,
+      "loop": 1709,
+      "report": 15082,
+      "size": 150823
+    }
+  ]
+}
