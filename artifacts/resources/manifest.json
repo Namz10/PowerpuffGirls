@@ -1,18 +1,18 @@
 {
   "version": "2.0.0",
-  "timestamp_utc": "2026-09-26T08:12:25Z",
+  "timestamp_utc": "2026-09-26T17:07:06Z",
   "resources": {
     "name_idf": {
       "path": "artifacts/resources/name_idf.json",
-      "sha256": "6d9f1ad513f27fd30dcd107595fbe4edff8cbd57b53f7c455569a25223fa540e"
+      "sha256": "765d3282d937e01a6b94a6e4f8b222acf0e13b0f6f818d0209e47c6a5c914ddf"
     },
     "address_idf": {
       "path": "artifacts/resources/address_idf.json",
-      "sha256": "991af3dfc98f130fdedf4ea193b9c0980c804989a12b2768a521965029d4954f"
+      "sha256": "81dbf7b9af468f0e4e7abe067fb878ca181d31f7cb7b51092a710ff7420e701c"
     },
     "boilerplate_tokens": {
       "path": "artifacts/resources/boilerplate_tokens.json",
-      "sha256": "e58b474bcff3fb1fa7cbc89b18b5b53bbc0d92b9d3a07abbd0def9afcd6b8736"
+      "sha256": "daa138c1a6e45640701a82d194c49489f8b410faf1ec58cc37ee6975aa6bdc90"
     }
   },
   "supported_indic_scripts": [
@@ -34,5 +34,5 @@
     "SARL",
     "SA"
   ],
-  "runtime_seconds": 93.93
+  "runtime_seconds": 149.22
 }

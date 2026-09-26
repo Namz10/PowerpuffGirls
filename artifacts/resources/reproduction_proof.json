@@ -1,0 +1,51 @@
+{
+  "proof_type": "canonical_representation_reproduction",
+  "phase": 3,
+  "owner": "Shriya (Person 2)",
+  "status": "PASSED",
+  "timestamp_utc": "2026-09-26T17:07:06Z",
+  "normalizer_version": "2.0.0",
+  "reproduction_runtime_seconds": 149.59,
+  "verified_resources": {
+    "name_idf": {
+      "path": "artifacts\\resources\\name_idf.json",
+      "expected_sha256": "765d3282d937e01a6b94a6e4f8b222acf0e13b0f6f818d0209e47c6a5c914ddf",
+      "actual_sha256": "765d3282d937e01a6b94a6e4f8b222acf0e13b0f6f818d0209e47c6a5c914ddf",
+      "byte_identical": true,
+      "size_bytes": 5037135
+    },
+    "address_idf": {
+      "path": "artifacts\\resources\\address_idf.json",
+      "expected_sha256": "81dbf7b9af468f0e4e7abe067fb878ca181d31f7cb7b51092a710ff7420e701c",
+      "actual_sha256": "81dbf7b9af468f0e4e7abe067fb878ca181d31f7cb7b51092a710ff7420e701c",
+      "byte_identical": true,
+      "size_bytes": 7918697
+    },
+    "boilerplate_tokens": {
+      "path": "artifacts\\resources\\boilerplate_tokens.json",
+      "expected_sha256": "daa138c1a6e45640701a82d194c49489f8b410faf1ec58cc37ee6975aa6bdc90",
+      "actual_sha256": "daa138c1a6e45640701a82d194c49489f8b410faf1ec58cc37ee6975aa6bdc90",
+      "byte_identical": true,
+      "size_bytes": 7687
+    }
+  },
+  "supported_scripts": [
+    "devanagari",
+    "bengali",
+    "gujarati",
+    "tamil",
+    "telugu",
+    "kannada",
+    "malayalam"
+  ],
+  "supported_french_entities": [
+    "SAS",
+    "SASU",
+    "EURL",
+    "SCI",
+    "SNC",
+    "SC",
+    "SARL",
+    "SA"
+  ]
+}

@@ -41,15 +41,15 @@ class TokenResource:
 
     def save(self, output_dir: Path) -> None:
         output_dir.mkdir(parents=True, exist_ok=True)
-        # Convert sets to lists for JSON serialization
-        serializable_boilerplate = {k: sorted(list(v)) for k, v in self.boilerplate_tokens.items()}
+        # Convert sets to sorted lists for deterministic serialization
+        serializable_boilerplate = {k: sorted(list(v)) for k, v in sorted(self.boilerplate_tokens.items())}
         
         with (output_dir / "name_idf.json").open("w", encoding="utf-8") as f:
-            json.dump(self.name_idf, f, indent=2, ensure_ascii=False)
+            json.dump(self.name_idf, f, indent=2, ensure_ascii=False, sort_keys=True)
         with (output_dir / "address_idf.json").open("w", encoding="utf-8") as f:
-            json.dump(self.address_idf, f, indent=2, ensure_ascii=False)
+            json.dump(self.address_idf, f, indent=2, ensure_ascii=False, sort_keys=True)
         with (output_dir / "boilerplate_tokens.json").open("w", encoding="utf-8") as f:
-            json.dump(serializable_boilerplate, f, indent=2, ensure_ascii=False)
+            json.dump(serializable_boilerplate, f, indent=2, ensure_ascii=False, sort_keys=True)
 
     @classmethod
     def load(cls, resource_path: Path) -> "TokenResource":

@@ -76,8 +76,8 @@ def build_representation_artifacts():
 
     # Combine boilerplate
     combined_bp = {
-        c: name_bp.get(c, set()).union(addr_bp.get(c, set()))
-        for c in set(name_bp.keys()).union(addr_bp.keys())
+        c: sorted(list(name_bp.get(c, set()).union(addr_bp.get(c, set()))))
+        for c in sorted(set(name_bp.keys()).union(addr_bp.keys()))
     }
 
     token_res = TokenResource(name_idf, addr_idf, combined_bp)
