@@ -1,8 +1,13 @@
 # PowerpuffGirls
-Business Entity Resolution Challenge
 
-Final planning documents:
+Business Entity Resolution Challenge.
 
-- [Four-phase build plan](docs/final_build_plan.md) — execution order, owners, handoffs, and exit gates.
-- [Consolidated ER pipeline](.cursor/plans/consolidated_er_pipeline_cf74755a.plan.md) — audited architecture and decision rules.
-- [Consolidated-plan audit](docs/consolidated_er_pipeline_audit.md) — evidence and findings closed by the final plan.
+## Project documentation
+
+- [Final build plan](docs/final_build_plan.md) — authoritative architecture, execution order, ownership, handoffs, and exit gates.
+- [Phase 1 handoff](docs/phase1_handoff.md) — current Person 1 deliverables and the remaining integration work.
+- [Problem understanding and research](docs/problem_understanding_and_research.md) — background analysis and challenge constraints.
+- [Problem statement](docs/Problem%20Statement.pdf) and [challenge guidelines](docs/guidelines_and_key_instructions_amazon_ml_challenge_2026.pdf) — organizer-provided requirements.
+- [Documentation template](docs/Documentation_template.md) — required submission documentation structure.
+
+The final build plan supersedes earlier individual, consolidated, and audit plans.

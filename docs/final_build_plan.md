@@ -2,9 +2,7 @@
 
 Status: **finalized for implementation**
 
-Architecture source of truth: [consolidated ER pipeline](../.cursor/plans/consolidated_er_pipeline_cf74755a.plan.md)
-
-Audit evidence: [consolidated pipeline audit](consolidated_er_pipeline_audit.md)
+This document is the single source of truth for architecture and execution. Earlier role plans, consolidation drafts, and planning audits are superseded.
 
 Implementation branch owner after handoff: **Dishita**
 
@@ -17,7 +15,7 @@ Implementation branch owner after handoff: **Dishita**
 | Srishti (Person 3) | Candidate generation | `src/blocking/`, candidate reports/manifests, `candidate_pairs.tsv` | Which target records reach the matcher and at what width |
 | Namita (Person 4) | Match decisions | `src/matching/`, model/calibration artifacts, drift report, `matching_results.tsv` | Which candidates are returned, including the empty set |
 
-Each owner commits only within the listed subsystem unless the affected owner reviews the change. `src/pipeline/` is changed at phase integration checkpoints by the two owners on either side of the handoff. Documentation sections remain owned as defined in the consolidated plan.
+Each owner commits only within the listed subsystem unless the affected owner reviews the change. `src/pipeline/` is changed at phase integration checkpoints by the two owners on either side of the handoff. Submission-document ownership is defined in Phase 4 below.
 
 ## Execution rules
 
@@ -27,7 +25,7 @@ The phases below are sequential: Phase N+1 does not begin until the Phase N exit
 - `fit` trains; the 25,000-id `loop` selects caps, quotas, owner behavior, thresholds, and set rules; `report` gets only the predeclared Phase 1 readiness score and the locked Phase 3 confirmation.
 - A challenger replaces an incumbent only when the 95% paired-bootstrap interval for its `loop` macro-F₀.₅ gain, using at least 2,000 seeded resamples, has a lower bound above zero. If the interval crosses zero, keep the simpler incumbent unless fixing a demonstrated correctness defect.
 - Candidate and matching TSVs always contain one row per requested Source 1 id. Every match must be a candidate. Empty lists are valid.
-- Freeze order is Must, then Should, then Could. Cut Could work first when time or capacity is tight. The tier definitions in the consolidated plan are binding.
+- Every item labelled "Required work" and every exit-gate condition is a **Must**. Work that directly strengthens a Must is a **Should**. Unlisted exploratory work is a **Could** and is cut first when time or capacity is tight.
 - No external lookup, registry, geocoder, search API, identity enrichment, or unapproved model weight is used.
 
 ## Phase 1 — prove the raw end-to-end spine
@@ -149,16 +147,8 @@ Phase 4 is complete only when:
 6. Dishita records the local config hash, locked `report` score, public score, public–local gap, validator logs, and chosen upload; and
 7. at least one daily upload slot remains for recovery.
 
-## Final branch handoff to Dishita
+## Current implementation handoff
 
-The finalized planning branch is `plan_finalised`. It contains planning documents only; the pre-existing untracked `utils/` directory is intentionally excluded.
+Person 1 has implemented most of the Phase 1 evaluation work. Continue from the [Phase 1 handoff](phase1_handoff.md), which records completed deliverables, missing artifacts, and the remaining integration gate.
 
-Dishita takes over by:
-
-1. fetching `origin/plan_finalised` and checking it out;
-2. reading this document first and the consolidated architecture second;
-3. opening implementation work from Phase 1 only;
-4. protecting the branch or using reviewed implementation branches so phase-gate evidence remains auditable; and
-5. treating later role plans as background where they conflict with this finalized plan.
-
-No implementation phase is implied complete by this planning commit.
+Use reviewed implementation branches and preserve phase-gate evidence in `artifacts/gates/`. Do not begin Phase 2 until `artifacts/gates/phase_1.json` records a passing Phase 1 gate.
