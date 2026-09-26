@@ -1,0 +1,23 @@
+{
+  "measurement": {
+    "elapsed_seconds": 912.446,
+    "entities": 50000,
+    "pair_rows": 1666403,
+    "peak_traced_bytes": 1746991291,
+    "seconds_per_entity": 0.018249
+  },
+  "normalizer_version": "2.0.0",
+  "note": "Feature schema only. phase1_provisional_threshold is unchanged. This is not Srishti's frozen Phase 2 blocker and not the 400k fit candidate file.",
+  "phase1_inference_seconds": 1006.4727042000741,
+  "phase2_seconds_per_entity_over_phase1": 0.907,
+  "projected_full_test_feature_seconds": 31617.2,
+  "resource_hashes": {
+    "address_idf": "991af3dfc98f130fdedf4ea193b9c0980c804989a12b2768a521965029d4954f",
+    "boilerplate_tokens": "e58b474bcff3fb1fa7cbc89b18b5b53bbc0d92b9d3a07abbd0def9afcd6b8736",
+    "name_idf": "6d9f1ad513f27fd30dcd107595fbe4edff8cbd57b53f7c455569a25223fa540e"
+  },
+  "schema_path": "artifacts/matching/phase2/feature_schema.json",
+  "schema_sha256": "e0a8863de7593c5569a6233bca407b23b8c11092c3df16f0c0f161cfdf01dad3",
+  "schema_version": "phase2-v1",
+  "threshold_retuned": false
+}

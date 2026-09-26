@@ -223,3 +223,24 @@ __marimo__/
 dataset/
 data/
 raw/
+not_to_push/
+student_resource_datasets/
+
+# Submission outputs (regenerate locally)
+output/
+
+# Person 3 blocking: local index and candidate/provenance TSVs (*.tsv above)
+artifacts/blocking/*.sqlite
+artifacts/blocking/staging_*/
+
+# Person 4 matching: local runs; keep phase manifests and feature_schema.json in Git
+artifacts/matching/inputs/*
+!artifacts/matching/inputs/*.json
+artifacts/matching/phase1/model.txt
+artifacts/matching/phase1/fit50k_matching_results.tsv
+artifacts/matching/phase1/loop_matching_results.tsv
+artifacts/matching/phase1/report_matching_results.tsv
+artifacts/matching/phase1/*_gold.tsv
+artifacts/matching/inputs/staging_*/
+
+.venv311/

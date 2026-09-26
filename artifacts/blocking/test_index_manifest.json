@@ -1,0 +1,47 @@
+{
+  "elapsed_seconds": 253.526,
+  "index_bytes": 2758352896,
+  "inputs": [
+    {
+      "path": "dataset/test/test_source2.tsv",
+      "sha256": "79d906c7497af2ace70aa277f6e334a652094909de99bd6c57b53420b6a7b2dd"
+    },
+    {
+      "path": "dataset/test/test_source3.tsv",
+      "sha256": "850942b11d2a4343486ed0834e28bce9f3b385f3fd497fd60ccf4ea3b8bda035"
+    }
+  ],
+  "schema_version": "phase1-raw-v1",
+  "shards": [
+    {
+      "country": "France",
+      "rows": 703378,
+      "source": "S2"
+    },
+    {
+      "country": "France",
+      "rows": 731615,
+      "source": "S3"
+    },
+    {
+      "country": "India",
+      "rows": 2312565,
+      "source": "S2"
+    },
+    {
+      "country": "India",
+      "rows": 2405000,
+      "source": "S3"
+    },
+    {
+      "country": "US",
+      "rows": 1871330,
+      "source": "S2"
+    },
+    {
+      "country": "US",
+      "rows": 1945701,
+      "source": "S3"
+    }
+  ]
+}

@@ -1,5 +1,9 @@
 # Amazon ML Challenge 2026 — problem reading and research map
 
+Status: **background research, not an implementation plan**
+
+This is a research snapshot from the initial problem-reading stage. Use the [final build plan](final_build_plan.md) for current decisions, verified assumptions, ownership, and execution gates.
+
 This note records what the official materials actually say, what the training files contain, and what exists in the market and in the literature for the same kind of problem.
 
 It does not choose a model, a blocking method, features, a threshold, or an evaluation design. Those decisions come later, after the task is clear.

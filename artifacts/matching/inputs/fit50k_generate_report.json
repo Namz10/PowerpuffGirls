@@ -1,0 +1,64 @@
+{
+  "candidate_file": "D:\\GitHub Repos\\PowerpuffGirls\\artifacts\\matching\\inputs\\fit50k_candidate_pairs.tsv",
+  "candidate_file_sha256": "0ccdcd6357e1fd2a1c0ed000ee07989449727deafc6ce58f3c9aee0f4bebbfe9",
+  "candidate_header": [
+    "source1_entity_id",
+    "candidate_entity_ids"
+  ],
+  "cap": 50,
+  "cap_sweep": {},
+  "elapsed_seconds": 1791.234,
+  "miss_columns": [
+    "source1_entity_id",
+    "truth_entity_ids",
+    "candidate_entity_ids",
+    "missed_truth_ids",
+    "status",
+    "miss_reason"
+  ],
+  "peak_rss_kib": 0,
+  "provenance_columns": [
+    "source1_entity_id",
+    "candidate_entity_id",
+    "target_source",
+    "provenance",
+    "rank",
+    "exact_name",
+    "exact_address",
+    "name_token",
+    "address_token",
+    "retrieval_score"
+  ],
+  "selected_metrics": {
+    "any_hit_recall": 0.8399423826470089,
+    "candidate_width": {
+      "max": 50,
+      "mean": 33.32806,
+      "p95": 50,
+      "p99": 50
+    },
+    "complete_entity_recall": 0.3427173360447382,
+    "country_equality_pairs": 268250521203,
+    "empty_candidate_rate": 0.05568,
+    "entities": 50000,
+    "link_recall": 0.5913691044491121,
+    "link_recall_by_source": {
+      "S2": {
+        "link_recall": 0.6181702820475985,
+        "recovered_truth_links": 51637,
+        "truth_links": 83532
+      },
+      "S3": {
+        "link_recall": 0.5662959603086607,
+        "recovered_truth_links": 50564,
+        "truth_links": 89289
+      }
+    },
+    "recovered_truth_links": 102201,
+    "reduction_factor": 160975.77909005203,
+    "reduction_ratio": 0.9999937878853226,
+    "total_candidate_pairs": 1666403,
+    "truth_links": 172821
+  },
+  "source_floor": 2
+}

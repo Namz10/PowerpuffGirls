@@ -1,0 +1,44 @@
+{
+  "candidate_file": "artifacts/blocking/report_candidate_pairs.tsv",
+  "candidate_file_sha256": "045374644663db8187fbe50de59e674b00ca0a57dbd35a83d52c291aa46ec304",
+  "candidate_header": [
+    "source1_entity_id",
+    "candidate_entity_ids"
+  ],
+  "cap": 50,
+  "cap_sweep": {},
+  "elapsed_seconds": 2167.072,
+  "peak_rss_kib": 324936,
+  "provenance_columns": [
+    "source1_entity_id",
+    "candidate_entity_id",
+    "target_source",
+    "provenance",
+    "rank",
+    "exact_name",
+    "exact_address",
+    "name_token",
+    "address_token",
+    "retrieval_score"
+  ],
+  "selected_metrics": {
+    "any_hit_recall": 0.8386824283787611,
+    "candidate_width": {
+      "max": 50,
+      "mean": 33.188945834862714,
+      "p95": 50,
+      "p99": 50
+    },
+    "complete_entity_recall": 0.3429948212888703,
+    "country_equality_pairs": 1183941282489,
+    "empty_candidate_rate": 0.05581460686886264,
+    "entities": 220677,
+    "link_recall": 0.5917006982642249,
+    "recovered_truth_links": 451912,
+    "reduction_factor": 161651.4611393962,
+    "reduction_ratio": 0.9999938138511526,
+    "total_candidate_pairs": 7324037,
+    "truth_links": 763751
+  },
+  "source_floor": 2
+}

@@ -1,0 +1,14 @@
+[
+  "name_jaccard",
+  "name_jaro_winkler",
+  "name_length_ratio",
+  "address_jaccard",
+  "candidate_address_empty",
+  "retrieval_score",
+  "retrieval_rank",
+  "exact_name",
+  "exact_address",
+  "name_token",
+  "address_token",
+  "src_is_s3"
+]

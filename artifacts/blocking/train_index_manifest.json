@@ -1,0 +1,37 @@
+{
+  "elapsed_seconds": 194.366,
+  "index_bytes": 2723409920,
+  "inputs": [
+    {
+      "path": "dataset/train/train_source2.tsv",
+      "sha256": "6336c1a055eec79cf8a6d99fdc8d32a2e4d9dc2662e00963cb35d66b89ed09ed"
+    },
+    {
+      "path": "dataset/train/train_source3.tsv",
+      "sha256": "67da22f5151898ff3006febd836c1a159e97ae95efa7257a5aff4fda685e58e9"
+    }
+  ],
+  "schema_version": "phase1-raw-v1",
+  "shards": [
+    {
+      "country": "India",
+      "rows": 2017799,
+      "source": "S2"
+    },
+    {
+      "country": "India",
+      "rows": 2115547,
+      "source": "S3"
+    },
+    {
+      "country": "US",
+      "rows": 3016817,
+      "source": "S2"
+    },
+    {
+      "country": "US",
+      "rows": 3170056,
+      "source": "S3"
+    }
+  ]
+}

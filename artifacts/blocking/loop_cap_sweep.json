@@ -1,0 +1,159 @@
+{
+  "candidate_file": "artifacts/blocking/loop_candidate_pairs.tsv",
+  "candidate_file_sha256": "e70188de84e3a3fe3f7b8e70253942880c855595f28a63aabd035e4b3be26e15",
+  "candidate_header": [
+    "source1_entity_id",
+    "candidate_entity_ids"
+  ],
+  "cap": 100,
+  "cap_sweep": {
+    "10": {
+      "any_hit_recall": 0.7522030164378919,
+      "candidate_width": {
+        "max": 10,
+        "mean": 8.0496,
+        "p95": 10,
+        "p99": 10
+      },
+      "complete_entity_recall": 0.20725300796475174,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.05728,
+      "entities": 25000,
+      "link_recall": 0.45937876122581245,
+      "recovered_truth_links": 39694,
+      "reduction_factor": 666499.142143709,
+      "reduction_ratio": 0.999998499622975,
+      "total_candidate_pairs": 201240,
+      "truth_links": 86408
+    },
+    "100": {
+      "any_hit_recall": 0.8614217929164548,
+      "candidate_width": {
+        "max": 100,
+        "mean": 56.89416,
+        "p95": 100,
+        "p99": 100
+      },
+      "complete_entity_recall": 0.4110320284697509,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.05728,
+      "entities": 25000,
+      "link_recall": 0.643748264049625,
+      "recovered_truth_links": 55625,
+      "reduction_factor": 94298.80842954708,
+      "reduction_ratio": 0.9999893954121303,
+      "total_candidate_pairs": 1422354,
+      "truth_links": 86408
+    },
+    "20": {
+      "any_hit_recall": 0.7962633451957295,
+      "candidate_width": {
+        "max": 20,
+        "mean": 14.99192,
+        "p95": 20,
+        "p99": 20
+      },
+      "complete_entity_recall": 0.2644043382477546,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.05728,
+      "entities": 25000,
+      "link_recall": 0.519199611147116,
+      "recovered_truth_links": 44863,
+      "reduction_factor": 357862.8684384655,
+      "reduction_ratio": 0.9999972056335312,
+      "total_candidate_pairs": 374798,
+      "truth_links": 86408
+    },
+    "30": {
+      "any_hit_recall": 0.8152855448229114,
+      "candidate_width": {
+        "max": 30,
+        "mean": 21.3952,
+        "p95": 30,
+        "p99": 30
+      },
+      "complete_entity_recall": 0.29829689883070665,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.05728,
+      "entities": 25000,
+      "link_recall": 0.5508749189889826,
+      "recovered_truth_links": 47600,
+      "reduction_factor": 250759.58600994616,
+      "reduction_ratio": 0.9999960121165619,
+      "total_candidate_pairs": 534880,
+      "truth_links": 86408
+    },
+    "5": {
+      "any_hit_recall": 0.7138196915776986,
+      "candidate_width": {
+        "max": 5,
+        "mean": 4.26904,
+        "p95": 5,
+        "p99": 5
+      },
+      "complete_entity_recall": 0.13857820708354515,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.05728,
+      "entities": 25000,
+      "link_recall": 0.3952296083695954,
+      "recovered_truth_links": 34151,
+      "reduction_factor": 1256734.8852669452,
+      "reduction_ratio": 0.9999992042872273,
+      "total_candidate_pairs": 106726,
+      "truth_links": 86408
+    },
+    "50": {
+      "any_hit_recall": 0.8374851720047449,
+      "candidate_width": {
+        "max": 50,
+        "mean": 33.1574,
+        "p95": 50,
+        "p99": 50
+      },
+      "complete_entity_recall": 0.3410862565666836,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.05728,
+      "entities": 25000,
+      "link_recall": 0.5896213313582076,
+      "recovered_truth_links": 50948,
+      "reduction_factor": 161805.554554941,
+      "reduction_ratio": 0.999993819742451,
+      "total_candidate_pairs": 828935,
+      "truth_links": 86408
+    }
+  },
+  "elapsed_seconds": 831.608,
+  "peak_rss_kib": 193096,
+  "provenance_columns": [
+    "source1_entity_id",
+    "candidate_entity_id",
+    "target_source",
+    "provenance",
+    "rank",
+    "exact_name",
+    "exact_address",
+    "name_token",
+    "address_token",
+    "retrieval_score"
+  ],
+  "selected_metrics": {
+    "any_hit_recall": 0.8614217929164548,
+    "candidate_width": {
+      "max": 100,
+      "mean": 56.89416,
+      "p95": 100,
+      "p99": 100
+    },
+    "complete_entity_recall": 0.4110320284697509,
+    "country_equality_pairs": 134126287365,
+    "empty_candidate_rate": 0.05728,
+    "entities": 25000,
+    "link_recall": 0.643748264049625,
+    "recovered_truth_links": 55625,
+    "reduction_factor": 94298.80842954708,
+    "reduction_ratio": 0.9999893954121303,
+    "total_candidate_pairs": 1422354,
+    "truth_links": 86408
+  },
+  "source_floor": 2
+}
