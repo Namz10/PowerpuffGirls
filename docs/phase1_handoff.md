@@ -1,6 +1,6 @@
 # Phase 1 implementation and gate handoff
 
-Status: **All repository-side Phase 1 work passes; the external portal probe is the only open gate item**
+Status: **Completed — the repository checks and external portal probe gate passed**
 
 This handoff describes the repository as it exists now. The [final build plan](final_build_plan.md) is authoritative; implementation and tests are the evidence for completed work.
 
@@ -69,7 +69,7 @@ handoff was first written.
 
 | Owner | Phase 1 responsibility | Current evidence | Status |
 |---|---|---|---|
-| Dishita (Person 1) | Frozen split, official scorer, difficulty pack/slices, and release gate | `src/eval/`, `tests/eval/`, frozen split artifacts, and `artifacts/gates/phase_1.json` are present. All 87 repository tests pass. | Repository integration complete; external portal evidence remains. |
+| Dishita (Person 1) | Frozen split, official scorer, difficulty pack/slices, and release gate | `src/eval/`, `tests/eval/`, frozen split artifacts, and `artifacts/gates/phase_1.json` are present. All 87 repository tests pass; the portal accepted and evaluated the probe. | Handoff complete; Phase 1 gate passed. |
 | Shriya (Person 2) | Canonical schema/version contract and golden examples | `src/represent/`, `tests/represent/`, `artifacts/resources/manifest.json`, and the representation audit are present. Scalar canonicalization and its tests no longer require pandas. | Handoff implemented. |
 | Srishti (Person 3) | Raw candidates, width/recall report, miss audit, and manifest | `src/blocking/`, `tests/blocking/`, `src/blocking/PHASE1_REPORT.md`, `src/blocking/phase1_manifest.json`, and `artifacts/blocking/` are present. The frozen `report` candidate run contains 220,677 rows and 7,324,037 pairs. | Handoff implemented. |
 | Namita (Person 4) | Minimum pair features, pass-1 matcher, raw predictions, model manifest, and 50k timing/memory projection | `src/matching/`, its tests, the Phase 1 manifest, the trained model, loop/fit predictions, and the completed frozen-report predictions are present. | Handoff complete. |
@@ -79,15 +79,13 @@ The frozen `report` run contains 220,677 prediction rows. Its macro-F0.5 is
 candidate row. Its fingerprints are recorded in the matching manifest and the
 Phase 1 gate artifact.
 
-## Remaining work
+## External portal gate completion
 
-Upload `artifacts/gates/phase_1_predict_nothing_probe.tsv` exactly once. Record
-the portal `SCORED` status, encoding/header acceptance, and public score in
-`artifacts/gates/phase_1.json`; then change the gate status to `passed` and
-`passed` to `true`.
-
-The portal upload in item 5 is an external team action. It cannot be completed
-from repository implementation alone.
+The prepared `artifacts/gates/phase_1_predict_nothing_probe.tsv` was accepted
+and evaluated by the portal. The portal status was `Evaluated`, the header and
+encoding were accepted, and the public score was `0.056`. This satisfies the
+required scored/evaluated confirmation. As expected for a predict-nothing
+format probe, that score is not a measure of matcher quality.
 
 ## Phase 1 gate status
 
@@ -97,11 +95,11 @@ from repository implementation alone.
 | A raw-field pipeline produces candidates, matches, and a `report` score. | **Pass:** 220,677 rows; macro-F0.5 `0.6753125283185789`. |
 | Matches are a subset of candidates and both validators pass. | **Pass:** strict subset proof, official format/candidate validation, and 10,320,219-target ID-existence validation pass. |
 | The 50k timing leaves room for a full run and rerun. | **Recorded:** 1,006.473 seconds for 50k; projected full test plus one rerun is 69,750.3 seconds. |
-| The portal probe is recorded. | **Pending external action:** the locally validated 1,732,544-row probe is prepared under `artifacts/gates/`. |
+| The portal probe is recorded. | **Pass:** portal status `Evaluated`; header and encoding accepted; public score `0.056`. |
 | Integrated schema and artifact fingerprints are frozen. | **Pass:** model, report candidates/provenance, report predictions, and probe hashes are recorded in `artifacts/gates/phase_1.json`. |
 
-Phase 2 must not begin until the portal evidence is filled in and the gate is
-explicitly changed from `pending_external_portal_probe` to `passed`.
+The Phase 1 gate is explicitly `passed` in `artifacts/gates/phase_1.json`; the
+Phase 2 entry condition is satisfied.
 
 ## Verification commands
 

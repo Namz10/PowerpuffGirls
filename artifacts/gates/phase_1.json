@@ -1,8 +1,8 @@
 {
   "phase": 1,
-  "status": "pending_external_portal_probe",
-  "passed": false,
-  "recorded_at_utc": "2026-09-26T14:02:45Z",
+  "status": "passed",
+  "passed": true,
+  "recorded_at_utc": "2026-09-26T16:26:21Z",
   "checks": {
     "repository_tests": {
       "status": "pass",
@@ -33,14 +33,14 @@
       "projected_full_test_plus_one_rerun_seconds": 69750.3
     },
     "portal_probe": {
-      "status": "pending_external_action",
+      "status": "pass",
       "local_validator_status": "pass",
       "rows": 1732544,
       "artifact": "artifacts/gates/phase_1_predict_nothing_probe.tsv",
       "sha256": "7fd4b11ceda1ccd61de32995b030cb72ac7d6521f5a5f98ecf71f5de45075bfe",
-      "portal_status": null,
-      "encoding_header_accepted": null,
-      "public_score": null
+      "portal_status": "Evaluated",
+      "encoding_header_accepted": true,
+      "public_score": 0.056
     }
   },
   "fingerprints": {
@@ -53,5 +53,5 @@
     "report_provenance_sha256": "fd32816f48c664133f8661f30127daa3f10a123c69af23a27c1fc62de3df2506",
     "report_matching_sha256": "b545b8174fcbb67ce910a1bc3493aa341f4d37a0931a64651546d185793a58a2"
   },
-  "blocking_reason": "Upload the prepared predict-nothing probe exactly once and record portal SCORED status, encoding/header acceptance, and public score."
+  "completion_note": "The portal accepted and evaluated the predict-nothing probe. Evaluated is the portal's scored/evaluated confirmation; header and encoding were accepted. The 0.056 public score is expected for this format probe and is not a matcher-quality result."
 }

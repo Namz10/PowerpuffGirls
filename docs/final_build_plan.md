@@ -45,7 +45,7 @@ The phases below are sequential: Phase N+1 does not begin until the Phase N exit
 
 ### Integration and exit gate
 
-Dishita runs the subset checker, official validator, and the predeclared raw-field `report` readiness score. That score is logged but may not select features, caps, or thresholds. The team also uploads exactly one predict-nothing format probe and records portal `SCORED` status, encoding/header acceptance, and the public score.
+Dishita runs the subset checker, official validator, and the predeclared raw-field `report` readiness score. That score is logged but may not select features, caps, or thresholds. The team also uploads exactly one predict-nothing format probe and records the portal's scored/evaluated status, encoding/header acceptance, and the public score.
 
 Phase 1 passes only when:
 
@@ -149,11 +149,11 @@ Phase 4 is complete only when:
 
 ## Current implementation handoff
 
-The current worktree contains the Phase 1 evaluation, representation, and raw
-candidate-generation handoffs. The matcher/prediction handoff, 50k capacity
-evidence, integrated validation and score, portal probe, and
-`artifacts/gates/phase_1.json` remain. Continue from the
-[Phase 1 handoff](phase1_handoff.md), which records the owner-by-owner status
-and exact missing artifacts.
+Phase 1 is complete. Its evaluation, representation, candidate-generation,
+matcher/prediction, capacity, validation, and portal-probe evidence are
+recorded in the [Phase 1 handoff](phase1_handoff.md) and
+`artifacts/gates/phase_1.json`. The portal accepted and evaluated the
+predict-nothing probe (public score `0.056`); this confirms submission format,
+not matcher quality.
 
-Use reviewed implementation branches and preserve phase-gate evidence in `artifacts/gates/`. Do not begin Phase 2 until `artifacts/gates/phase_1.json` records a passing Phase 1 gate.
+Use reviewed implementation branches and preserve phase-gate evidence in `artifacts/gates/`. `artifacts/gates/phase_1.json` records the passing Phase 1 gate, so Phase 2 may proceed.
