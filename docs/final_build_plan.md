@@ -149,6 +149,11 @@ Phase 4 is complete only when:
 
 ## Current implementation handoff
 
-Person 1 has implemented most of the Phase 1 evaluation work. Continue from the [Phase 1 handoff](phase1_handoff.md), which records completed deliverables, missing artifacts, and the remaining integration gate.
+The current worktree contains the Phase 1 evaluation, representation, and raw
+candidate-generation handoffs. The matcher/prediction handoff, 50k capacity
+evidence, integrated validation and score, portal probe, and
+`artifacts/gates/phase_1.json` remain. Continue from the
+[Phase 1 handoff](phase1_handoff.md), which records the owner-by-owner status
+and exact missing artifacts.
 
 Use reviewed implementation branches and preserve phase-gate evidence in `artifacts/gates/`. Do not begin Phase 2 until `artifacts/gates/phase_1.json` records a passing Phase 1 gate.

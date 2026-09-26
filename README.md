@@ -5,7 +5,7 @@ Business Entity Resolution Challenge.
 ## Project documentation
 
 - [Final build plan](docs/final_build_plan.md) — authoritative architecture, execution order, ownership, handoffs, and exit gates.
-- [Phase 1 handoff](docs/phase1_handoff.md) — current Person 1 deliverables and the remaining integration work.
+- [Phase 1 handoff](docs/phase1_handoff.md) — current owner-by-owner implementation status and remaining gate work.
 - [Phase 1 raw-blocker report](src/blocking/PHASE1_REPORT.md) — measured cap frontier and selected operating point.
 - [Candidate-to-matcher contract](src/blocking/CANDIDATE_CONTRACT.md) — exact inference-set and provenance schema.
 - [Problem understanding and research](docs/problem_understanding_and_research.md) — background analysis and challenge constraints.
