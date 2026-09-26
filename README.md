@@ -5,9 +5,10 @@ Business Entity Resolution Challenge.
 ## Project documentation
 
 - [Final build plan](docs/final_build_plan.md) — authoritative architecture, execution order, ownership, handoffs, and exit gates.
-- [Phase 1 handoff](docs/phase1_handoff.md) — current Person 1 deliverables and the remaining integration work.
+- [Phase 1 handoff](docs/phase1_handoff.md) — current owner-by-owner implementation status and remaining gate work.
 - [Phase 1 raw-blocker report](src/blocking/PHASE1_REPORT.md) — measured cap frontier and selected operating point.
 - [Candidate-to-matcher contract](src/blocking/CANDIDATE_CONTRACT.md) — exact inference-set and provenance schema.
+- [Provisional Phase 2 blocker](src/blocking/PHASE2_PROVISIONAL.md) — canonical/cross-script implementation, loop-only evaluation, and selection guardrails.
 - [Problem understanding and research](docs/problem_understanding_and_research.md) — background analysis and challenge constraints.
 - [Problem statement](docs/Problem%20Statement.pdf) and [challenge guidelines](docs/guidelines_and_key_instructions_amazon_ml_challenge_2026.pdf) — organizer-provided requirements.
 - [Documentation template](docs/Documentation_template.md) — required submission documentation structure.

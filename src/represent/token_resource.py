@@ -10,7 +10,6 @@ import math
 from collections import Counter
 from pathlib import Path
 from typing import Dict, List, Set, Tuple
-import pandas as pd
 
 from src.represent.config import resource_dir
 

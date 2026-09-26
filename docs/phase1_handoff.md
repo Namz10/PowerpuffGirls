@@ -1,6 +1,6 @@
-# Phase 1 handoff — Person 1 (Dishita)
+# Phase 1 implementation and gate handoff
 
-Status: **evaluation implementation mostly complete; Phase 1 integration gate pending**
+Status: **Person 1 evaluation, Person 2 representation, and Person 3 blocking are implemented; Person 4 matching and the Person 1 integration gate remain**
 
 This handoff describes the repository as it exists now. The [final build plan](final_build_plan.md) is authoritative; implementation and tests are the evidence for completed work.
 
@@ -57,26 +57,43 @@ The `short_name` and `generic_name` cutoffs remain deliberately unfrozen. The sc
 To recreate the local reading pack from the challenge data:
 
 ```bash
-python3.11 -m src.eval.difficulty_pack
+EVAL_TRAIN_DIR=dataset/train python3.11 -m src.eval.difficulty_pack
 ```
 
 Confirm that the generated file matches the fingerprint in its manifest. Do not commit challenge-derived TSV data unless the team explicitly changes the repository data policy.
 
-## Required teammate handoffs
+## Implementation status by owner
 
-These Phase 1 inputs are not present yet:
+This table reflects the current merged worktree rather than the state when this
+handoff was first written.
 
-| Owner | Required handoff | Current status |
-|---|---|---|
-| Shriya | Canonical schema/version contract and golden examples | Pending; `src/represent/` is absent. |
-| Srishti | Candidate TSV/Parquet, width/recall report, and manifest | Pending; `src/blocking/` is absent. |
-| Namita | Prediction TSV, 50k timing/memory projection, and model manifest | Pending; `src/matching/` is absent. |
+| Owner | Phase 1 responsibility | Current evidence | Status |
+|---|---|---|---|
+| Dishita (Person 1) | Frozen split, official scorer, difficulty pack/slices, and release gate | `src/eval/`, `tests/eval/`, and frozen split artifacts are present. The evaluation and blocking suite passes when `EVAL_TRAIN_DIR=dataset/train` is set. | Core evaluation implemented; final integration/release gate remains. |
+| Shriya (Person 2) | Canonical schema/version contract and golden examples | `src/represent/`, `tests/represent/`, `artifacts/resources/manifest.json`, and the representation audit are present. Scalar canonicalization and its tests no longer require pandas. | Handoff implemented. |
+| Srishti (Person 3) | Raw candidates, width/recall report, miss audit, and manifest | `src/blocking/`, `tests/blocking/`, `src/blocking/PHASE1_REPORT.md`, `src/blocking/phase1_manifest.json`, and `artifacts/blocking/` are present. The frozen `report` candidate run contains 220,677 rows and 7,324,037 pairs. | Handoff implemented. |
+| Namita (Person 4) | Minimum pair features, pass-1 matcher, raw predictions, model manifest, and 50k timing/memory projection | The candidate contract was reviewed in `src/blocking/PERSON4_REVIEW.md`, but `src/matching/`, a model manifest, a timing report, and `output/matching_results.tsv` are absent. | **Remaining implementation owner.** |
 
-`src/pipeline/`, `output/`, and `artifacts/gates/` are also absent. Those absences prevent the integrated Phase 1 gate from passing; they do not invalidate Person 1's completed scorer and split work.
+`output/candidate_pairs.tsv` is present, but it is a test-set candidate artifact;
+it does not replace the missing raw-baseline predictions or the frozen-train
+`report` macro-F0.5 run. `src/pipeline/` and `artifacts/gates/phase_1.json` are
+also absent.
 
-## Remaining Person 1 work
+## Remaining work
 
-After the teammate handoffs arrive, Person 1 must:
+### Namita (Person 4)
+
+1. implement the Phase 1 minimum pair features and pass-1 matcher against the
+   frozen candidate contract;
+2. produce raw-baseline predictions, including predictions for the frozen
+   `report` split;
+3. publish the model/configuration manifest; and
+4. record a 50k-entity timing and memory measurement with a full-run-plus-rerun
+   capacity projection.
+
+### Dishita (Person 1), after the matching handoff
+
+Dishita must:
 
 1. prove every predicted match is in the corresponding candidate set;
 2. run the official validator at `docs/validate_submission.py` with id checks;
@@ -86,16 +103,19 @@ After the teammate handoffs arrive, Person 1 must:
 6. freeze the integrated schemas, configurations, inputs, and output fingerprints; and
 7. record the passing gate in `artifacts/gates/phase_1.json`.
 
+The portal upload in item 5 is an external team action. It cannot be completed
+from repository implementation alone.
+
 ## Phase 1 gate status
 
 | Gate condition | Status |
 |---|---|
-| Scorer tests are finite and green, including the disjoint case. | Ready to verify from the committed tests. |
-| A raw-field pipeline produces candidates, matches, and a `report` score. | Blocked on candidate and matching handoffs. |
-| Matches are a subset of candidates and both validators pass. | Blocked on output files and the subset checker. |
+| Scorer tests are finite and green, including the disjoint case. | **Pass:** the combined evaluation/blocking run completes 38 tests successfully, and the repository dataset path is detected by default. |
+| A raw-field pipeline produces candidates, matches, and a `report` score. | Candidates are complete; blocked on Namita's matcher and predictions. The existing readiness report records candidate recall, not macro-F0.5. |
+| Matches are a subset of candidates and both validators pass. | The strict subset checker exists and is tested; blocked on `matching_results.tsv` and integrated validator runs. |
 | The 50k timing leaves room for a full run and rerun. | Blocked on Namita's timing report. |
-| The portal probe is recorded. | Pending. |
-| Integrated schema and artifact fingerprints are frozen. | Pending teammate and pipeline artifacts. |
+| The portal probe is recorded. | Pending external portal upload and evidence. |
+| Integrated schema and artifact fingerprints are frozen. | Representation and candidate manifests exist; the matcher, integrated output, and final gate fingerprints remain. |
 
 Phase 2 must not begin until every row above passes and the gate evidence file exists.
 
@@ -110,7 +130,8 @@ python3.11 -m unittest \
   tests.eval.test_split_artifacts \
   tests.eval.test_score \
   tests.eval.test_slice_schema \
-  tests.eval.test_difficulty_pack
+  tests.eval.test_difficulty_pack \
+  tests.blocking.test_blocking
 ```
 
 Before modifying evaluation behavior, read these files in order:

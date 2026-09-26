@@ -2,8 +2,6 @@
 
 from dataclasses import asdict, dataclass
 from typing import Any, Dict, List, Optional
-import pandas as pd
-import numpy as np
 
 from src.represent.country_rules import normalize_country
 from src.represent.normalize_address import normalize_address
@@ -74,8 +72,11 @@ def transform_single_record(
     )
 
 
-def transform_dataframe(df: pd.DataFrame, source_name: str = "") -> pd.DataFrame:
+def transform_dataframe(df: Any, source_name: str = "") -> Any:
     """Transform a pandas DataFrame of raw entity records into canonical schema."""
+    # Keep pandas optional for scalar canonicalization and downstream blocking.
+    import pandas as pd
+
     id_col = next((c for c in ["entity_id", "id", "record_id"] if c in df.columns), df.columns[0])
     name_col = next((c for c in ["business_name", "name", "name_1", "name_2"] if c in df.columns), df.columns[1])
     addr_col = next((c for c in ["business_address", "address", "address_1", "address_2"] if c in df.columns), None)

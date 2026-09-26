@@ -1,8 +1,14 @@
 # Phase 2 handoff — Person 2 (Shriya)
 
-Status: **Representation implementation complete; Phase 2 Person 2 handoff ready**
+Status: **Representation code and resources complete; canonical Parquet is not materialized**
 
 This handoff describes the completed representation subsystem owned by Person 2 (Shriya) in Phase 2 as specified in [final_build_plan.md](final_build_plan.md).
+
+The provisional Person 3 blocker consumes this contract by canonicalizing TSV
+rows while it builds its disk-backed index. It therefore does not require a
+large intermediate Parquet file. If the team still requires the canonical
+Parquet named in the build plan as an independent handoff artifact, that file
+remains to be generated and fingerprinted.
 
 ---
 
