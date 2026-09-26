@@ -224,4 +224,7 @@ dataset/
 data/
 raw/
 not_to_push/
-student_resource_datasets/
+student_resource_datasets/
+# Reproducible blocking indices; keep manifests in Git
+artifacts/blocking/*.sqlite
+.venv311/
