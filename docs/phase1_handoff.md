@@ -1,6 +1,6 @@
 # Phase 1 implementation and gate handoff
 
-Status: **Person 1 evaluation, Person 2 representation, and Person 3 blocking are implemented; Person 4 matching and the Person 1 integration gate remain**
+Status: **All repository-side Phase 1 work passes; the external portal probe is the only open gate item**
 
 This handoff describes the repository as it exists now. The [final build plan](final_build_plan.md) is authoritative; implementation and tests are the evidence for completed work.
 
@@ -69,39 +69,22 @@ handoff was first written.
 
 | Owner | Phase 1 responsibility | Current evidence | Status |
 |---|---|---|---|
-| Dishita (Person 1) | Frozen split, official scorer, difficulty pack/slices, and release gate | `src/eval/`, `tests/eval/`, and frozen split artifacts are present. The evaluation and blocking suite passes when `EVAL_TRAIN_DIR=dataset/train` is set. | Core evaluation implemented; final integration/release gate remains. |
+| Dishita (Person 1) | Frozen split, official scorer, difficulty pack/slices, and release gate | `src/eval/`, `tests/eval/`, frozen split artifacts, and `artifacts/gates/phase_1.json` are present. All 87 repository tests pass. | Repository integration complete; external portal evidence remains. |
 | Shriya (Person 2) | Canonical schema/version contract and golden examples | `src/represent/`, `tests/represent/`, `artifacts/resources/manifest.json`, and the representation audit are present. Scalar canonicalization and its tests no longer require pandas. | Handoff implemented. |
 | Srishti (Person 3) | Raw candidates, width/recall report, miss audit, and manifest | `src/blocking/`, `tests/blocking/`, `src/blocking/PHASE1_REPORT.md`, `src/blocking/phase1_manifest.json`, and `artifacts/blocking/` are present. The frozen `report` candidate run contains 220,677 rows and 7,324,037 pairs. | Handoff implemented. |
-| Namita (Person 4) | Minimum pair features, pass-1 matcher, raw predictions, model manifest, and 50k timing/memory projection | The candidate contract was reviewed in `src/blocking/PERSON4_REVIEW.md`, but `src/matching/`, a model manifest, a timing report, and `output/matching_results.tsv` are absent. | **Remaining implementation owner.** |
+| Namita (Person 4) | Minimum pair features, pass-1 matcher, raw predictions, model manifest, and 50k timing/memory projection | `src/matching/`, its tests, the Phase 1 manifest, the trained model, loop/fit predictions, and the completed frozen-report predictions are present. | Handoff complete. |
 
-`output/candidate_pairs.tsv` is present, but it is a test-set candidate artifact;
-it does not replace the missing raw-baseline predictions or the frozen-train
-`report` macro-F0.5 run. `src/pipeline/` and `artifacts/gates/phase_1.json` are
-also absent.
+The frozen `report` run contains 220,677 prediction rows. Its macro-F0.5 is
+`0.6753125283185789`, and every emitted match is in the corresponding frozen
+candidate row. Its fingerprints are recorded in the matching manifest and the
+Phase 1 gate artifact.
 
 ## Remaining work
 
-### Namita (Person 4)
-
-1. implement the Phase 1 minimum pair features and pass-1 matcher against the
-   frozen candidate contract;
-2. produce raw-baseline predictions, including predictions for the frozen
-   `report` split;
-3. publish the model/configuration manifest; and
-4. record a 50k-entity timing and memory measurement with a full-run-plus-rerun
-   capacity projection.
-
-### Dishita (Person 1), after the matching handoff
-
-Dishita must:
-
-1. prove every predicted match is in the corresponding candidate set;
-2. run the official validator at `docs/validate_submission.py` with id checks;
-3. score the raw-field pipeline once on `report` without using that result for tuning;
-4. record the 50k timing projection and confirm capacity for a full run plus one rerun;
-5. upload exactly one predict-nothing format probe and record portal status, encoding/header acceptance, and public score;
-6. freeze the integrated schemas, configurations, inputs, and output fingerprints; and
-7. record the passing gate in `artifacts/gates/phase_1.json`.
+Upload `artifacts/gates/phase_1_predict_nothing_probe.tsv` exactly once. Record
+the portal `SCORED` status, encoding/header acceptance, and public score in
+`artifacts/gates/phase_1.json`; then change the gate status to `passed` and
+`passed` to `true`.
 
 The portal upload in item 5 is an external team action. It cannot be completed
 from repository implementation alone.
@@ -110,14 +93,15 @@ from repository implementation alone.
 
 | Gate condition | Status |
 |---|---|
-| Scorer tests are finite and green, including the disjoint case. | **Pass:** the combined evaluation/blocking run completes 38 tests successfully, and the repository dataset path is detected by default. |
-| A raw-field pipeline produces candidates, matches, and a `report` score. | Candidates are complete; blocked on Namita's matcher and predictions. The existing readiness report records candidate recall, not macro-F0.5. |
-| Matches are a subset of candidates and both validators pass. | The strict subset checker exists and is tested; blocked on `matching_results.tsv` and integrated validator runs. |
-| The 50k timing leaves room for a full run and rerun. | Blocked on Namita's timing report. |
-| The portal probe is recorded. | Pending external portal upload and evidence. |
-| Integrated schema and artifact fingerprints are frozen. | Representation and candidate manifests exist; the matcher, integrated output, and final gate fingerprints remain. |
+| Scorer tests are finite and green, including the disjoint case. | **Pass:** all 87 repository tests pass. |
+| A raw-field pipeline produces candidates, matches, and a `report` score. | **Pass:** 220,677 rows; macro-F0.5 `0.6753125283185789`. |
+| Matches are a subset of candidates and both validators pass. | **Pass:** strict subset proof, official format/candidate validation, and 10,320,219-target ID-existence validation pass. |
+| The 50k timing leaves room for a full run and rerun. | **Recorded:** 1,006.473 seconds for 50k; projected full test plus one rerun is 69,750.3 seconds. |
+| The portal probe is recorded. | **Pending external action:** the locally validated 1,732,544-row probe is prepared under `artifacts/gates/`. |
+| Integrated schema and artifact fingerprints are frozen. | **Pass:** model, report candidates/provenance, report predictions, and probe hashes are recorded in `artifacts/gates/phase_1.json`. |
 
-Phase 2 must not begin until every row above passes and the gate evidence file exists.
+Phase 2 must not begin until the portal evidence is filled in and the gate is
+explicitly changed from `pending_external_portal_probe` to `passed`.
 
 ## Verification commands
 
