@@ -31,6 +31,9 @@ def dataset_dir(split_name: str = "train") -> Path:
     override = os.environ.get(f"EVAL_{split_name.upper()}_DIR")
     if override:
         return Path(override)
+    repository_path = REPO_ROOT / "dataset" / split_name
+    if repository_path.exists():
+        return repository_path
     default_path = REPO_ROOT / ".." / "student_resource" / "dataset" / split_name
     if not default_path.exists():
         fallback = REPO_ROOT / "student_resource_datasets" / "dataset" / split_name

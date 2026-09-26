@@ -70,7 +70,7 @@ handoff was first written.
 | Owner | Phase 1 responsibility | Current evidence | Status |
 |---|---|---|---|
 | Dishita (Person 1) | Frozen split, official scorer, difficulty pack/slices, and release gate | `src/eval/`, `tests/eval/`, and frozen split artifacts are present. The evaluation and blocking suite passes when `EVAL_TRAIN_DIR=dataset/train` is set. | Core evaluation implemented; final integration/release gate remains. |
-| Shriya (Person 2) | Canonical schema/version contract and golden examples | `src/represent/`, `tests/represent/`, `artifacts/resources/manifest.json`, and the representation audit are present. | Handoff implemented. The current `.venv311` does not include the required runtime dependency `pandas`, so the pandas-dependent representation tests cannot be rerun in that environment yet. |
+| Shriya (Person 2) | Canonical schema/version contract and golden examples | `src/represent/`, `tests/represent/`, `artifacts/resources/manifest.json`, and the representation audit are present. Scalar canonicalization and its tests no longer require pandas. | Handoff implemented. |
 | Srishti (Person 3) | Raw candidates, width/recall report, miss audit, and manifest | `src/blocking/`, `tests/blocking/`, `src/blocking/PHASE1_REPORT.md`, `src/blocking/phase1_manifest.json`, and `artifacts/blocking/` are present. The frozen `report` candidate run contains 220,677 rows and 7,324,037 pairs. | Handoff implemented. |
 | Namita (Person 4) | Minimum pair features, pass-1 matcher, raw predictions, model manifest, and 50k timing/memory projection | The candidate contract was reviewed in `src/blocking/PERSON4_REVIEW.md`, but `src/matching/`, a model manifest, a timing report, and `output/matching_results.tsv` are absent. | **Remaining implementation owner.** |
 
@@ -110,7 +110,7 @@ from repository implementation alone.
 
 | Gate condition | Status |
 |---|---|
-| Scorer tests are finite and green, including the disjoint case. | **Pass with the repository dataset path supplied:** the combined evaluation/blocking run completes 38 tests successfully with `EVAL_TRAIN_DIR=dataset/train`. The default evaluation data path still points outside this checkout. |
+| Scorer tests are finite and green, including the disjoint case. | **Pass:** the combined evaluation/blocking run completes 38 tests successfully, and the repository dataset path is detected by default. |
 | A raw-field pipeline produces candidates, matches, and a `report` score. | Candidates are complete; blocked on Namita's matcher and predictions. The existing readiness report records candidate recall, not macro-F0.5. |
 | Matches are a subset of candidates and both validators pass. | The strict subset checker exists and is tested; blocked on `matching_results.tsv` and integrated validator runs. |
 | The 50k timing leaves room for a full run and rerun. | Blocked on Namita's timing report. |
@@ -121,12 +121,11 @@ Phase 2 must not begin until every row above passes and the gate evidence file e
 
 ## Verification commands
 
-Run from the repository root with Python 3.11. In this checkout the challenge
-data is under `dataset/train`, so set the supported override explicitly:
+Run from the repository root with Python 3.11:
 
 ```bash
-EVAL_TRAIN_DIR=dataset/train python3.11 -m src.eval.build_split --check
-EVAL_TRAIN_DIR=dataset/train python3.11 -m unittest \
+python3.11 -m src.eval.build_split --check
+python3.11 -m unittest \
   tests.eval.test_split \
   tests.eval.test_split_artifacts \
   tests.eval.test_score \

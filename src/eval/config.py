@@ -31,6 +31,9 @@ def train_dir() -> Path:
     override = os.environ.get("EVAL_TRAIN_DIR")
     if override:
         return Path(override)
+    repository_path = REPO_ROOT / "dataset" / "train"
+    if repository_path.exists():
+        return repository_path
     default_path = REPO_ROOT / TRAIN_DIR_RELATIVE
     if not default_path.exists():
         fallback = REPO_ROOT / "student_resource_datasets" / "dataset" / "train"
