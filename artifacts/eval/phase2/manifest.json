@@ -1,0 +1,39 @@
+{
+  "artifacts": {
+    "loop_script_join": {
+      "path": "artifacts/eval/phase2/loop_script_join.tsv",
+      "sha256": "cc1ccb98421c4b2aa287865076bfcddb5d1c36bd9c6a7d53eb35af8f3773516c"
+    },
+    "loop_script_targets": {
+      "path": "artifacts/eval/phase2/loop_script_targets.tsv",
+      "sha256": "ca7ac099d5042a26fb685cb5897ab0f92e83900fa62c9e7d7eaf48e60395f5b4"
+    }
+  },
+  "inputs": {
+    "loop_ids": {
+      "path": "src/eval/splits/loop_ids.txt",
+      "sha256": "ffc47cbc3b5585c2ac163335ec518a5efc220e5dd49066788cf97de796abe3ac"
+    },
+    "train_ground_truth": {
+      "path": "../student_resource/dataset/train/train_ground_truth.tsv",
+      "sha256": "70bc1d8a16c667e0155c2105d0ab2ebe41d7e7a85d8a529e3ca81c6c3a5af037"
+    },
+    "train_source2": {
+      "path": "../student_resource/dataset/train/train_source2.tsv",
+      "sha256": "6336c1a055eec79cf8a6d99fdc8d32a2e4d9dc2662e00963cb35d66b89ed09ed"
+    },
+    "train_source3": {
+      "path": "../student_resource/dataset/train/train_source3.tsv",
+      "sha256": "67da22f5151898ff3006febd836c1a159e97ae95efa7257a5aff4fda685e58e9"
+    }
+  },
+  "loop_rows": 25000,
+  "script_counts": {
+    "": 1396,
+    "accented_latin": 4836,
+    "indic": 2957,
+    "latin": 15811
+  },
+  "seed": 42,
+  "target_rows": 86408
+}
