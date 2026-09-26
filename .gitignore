@@ -223,3 +223,6 @@ __marimo__/
 dataset/
 data/
 raw/
+
+# Reproducible, multi-gigabyte blocking indices (manifests are committed)
+artifacts/blocking/*.sqlite

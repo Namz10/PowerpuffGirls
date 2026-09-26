@@ -1,0 +1,95 @@
+{
+  "candidate_contract": {
+    "candidate_header": [
+      "source1_entity_id",
+      "candidate_entity_ids"
+    ],
+    "matching_header": [
+      "source1_entity_id",
+      "matched_entity_ids"
+    ],
+    "matching_must_be_candidate_subset": true,
+    "provenance_columns": [
+      "source1_entity_id",
+      "candidate_entity_id",
+      "target_source",
+      "provenance",
+      "rank",
+      "exact_name",
+      "exact_address",
+      "name_token",
+      "address_token",
+      "retrieval_score"
+    ]
+  },
+  "configuration": {
+    "cap": 50,
+    "cap_selection": "largest increment with <=100 added pairs per recovered truth link",
+    "channels": [
+      "exact_name",
+      "exact_address",
+      "rare_name_token",
+      "rare_address_token"
+    ],
+    "country_rule": "open equality label",
+    "external_lookup": false,
+    "max_rare_posting_documents": 120,
+    "max_rare_tokens_per_field": 3,
+    "source_floor": 2,
+    "sources_queried_separately": true
+  },
+  "index_schema_version": "phase1-raw-v1",
+  "loop": {
+    "candidate_file_sha256": "480b9837be3da424c240b7eb55595be16602cce4e5d0f9c7447fa44116739902",
+    "entities": 25000,
+    "link_recall": 0.5896213313582076,
+    "link_recall_by_source": {
+      "S2": {
+        "link_recall": 0.6181891982235805,
+        "recovered_truth_links": 25891,
+        "truth_links": 41882
+      },
+      "S3": {
+        "link_recall": 0.5627498540178772,
+        "recovered_truth_links": 25057,
+        "truth_links": 44526
+      }
+    },
+    "mean_width": 33.1574,
+    "p95_width": 50,
+    "p99_width": 50,
+    "max_width": 50,
+    "total_candidate_pairs": 828935,
+    "miss_audit": {
+      "cap_truncation": 3444,
+      "complete": 9447,
+      "mixed_cap_and_no_retrieval_evidence": 1769,
+      "no_retrieval_evidence": 1205,
+      "no_retrieval_evidence_for_truth": 9135,
+      "rows": 25000
+    },
+    "reduction_ratio": 0.999993819742451,
+    "reduction_factor": 161805.554554941
+  },
+  "normalization": "NFKC + casefold + Unicode alphanumeric/mark preservation + whitespace collapse",
+  "python": "3.11",
+  "readiness_report": {
+    "candidate_file_sha256": "045374644663db8187fbe50de59e674b00ca0a57dbd35a83d52c291aa46ec304",
+    "complete_entity_recall": 0.3429948212888703,
+    "entities": 220677,
+    "link_recall": 0.5917006982642249,
+    "mean_width": 33.188945834862714,
+    "p95_width": 50,
+    "p99_width": 50,
+    "max_width": 50,
+    "total_candidate_pairs": 7324037,
+    "reduction_ratio": 0.9999938138511526,
+    "run_count": 1,
+    "used_for_selection": false
+  },
+  "seed": 42,
+  "train_inputs": {
+    "source2_sha256": "6336c1a055eec79cf8a6d99fdc8d32a2e4d9dc2662e00963cb35d66b89ed09ed",
+    "source3_sha256": "67da22f5151898ff3006febd836c1a159e97ae95efa7257a5aff4fda685e58e9"
+  }
+}
