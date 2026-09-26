@@ -1,0 +1,1775 @@
+{
+  "boilerplate_sha256": "daa138c1a6e45640701a82d194c49489f8b410faf1ec58cc37ee6975aa6bdc90",
+  "candidate_file": "artifacts/blocking/phase2_loop_candidates.tsv",
+  "candidate_file_sha256": "ff2bbbb1849fcbef7e303351c08b9f70697c11cf30541c026e30aab3607d10e7",
+  "cap_sweep": {
+    "10": {
+      "any_hit_recall": 0.81888662938485,
+      "candidate_width": {
+        "max": 10,
+        "mean": 9.1482,
+        "p95": 10,
+        "p99": 10
+      },
+      "complete_entity_recall": 0.2900779528893408,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.01284,
+      "entities": 25000,
+      "link_recall": 0.5681071197111378,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.5945752351845661,
+          "recovered_truth_links": 24902,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.5432107083501774,
+          "recovered_truth_links": 24187,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 49089,
+      "reduction_factor": 586459.7947793008,
+      "reduction_ratio": 0.9999982948532723,
+      "total_candidate_pairs": 228705,
+      "truth_links": 86408
+    },
+    "100": {
+      "any_hit_recall": 0.9333163870530419,
+      "candidate_width": {
+        "max": 100,
+        "mean": 73.30616,
+        "p95": 100,
+        "p99": 100
+      },
+      "complete_entity_recall": 0.4926283680732079,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.01284,
+      "entities": 25000,
+      "link_recall": 0.744699564855106,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.7717874027028317,
+          "recovered_truth_links": 32324,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.7192202308763419,
+          "recovered_truth_links": 32024,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 64348,
+      "reduction_factor": 73186.91218582449,
+      "reduction_ratio": 0.999986336354819,
+      "total_candidate_pairs": 1832654,
+      "truth_links": 86408
+    },
+    "20": {
+      "any_hit_recall": 0.8524402643619725,
+      "candidate_width": {
+        "max": 20,
+        "mean": 17.50744,
+        "p95": 20,
+        "p99": 20
+      },
+      "complete_entity_recall": 0.33790882901203184,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.01284,
+      "entities": 25000,
+      "link_recall": 0.6135890195352283,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.6395110071152285,
+          "recovered_truth_links": 26784,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.5892063064277051,
+          "recovered_truth_links": 26235,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 53019,
+      "reduction_factor": 306444.0886046161,
+      "reduction_ratio": 0.9999967367619831,
+      "total_candidate_pairs": 437686,
+      "truth_links": 86408
+    },
+    "30": {
+      "any_hit_recall": 0.8860362650398238,
+      "candidate_width": {
+        "max": 30,
+        "mean": 25.46324,
+        "p95": 30,
+        "p99": 30
+      },
+      "complete_entity_recall": 0.37764785629554315,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.01284,
+      "entities": 25000,
+      "link_recall": 0.6537473382094251,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.6815338331502794,
+          "recovered_truth_links": 28544,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.6276108341193909,
+          "recovered_truth_links": 27945,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 56489,
+      "reduction_factor": 210697.9117582837,
+      "reduction_ratio": 0.9999952538684809,
+      "total_candidate_pairs": 636581,
+      "truth_links": 86408
+    },
+    "50": {
+      "any_hit_recall": 0.9090408405355025,
+      "candidate_width": {
+        "max": 50,
+        "mean": 40.29256,
+        "p95": 50,
+        "p99": 50
+      },
+      "complete_entity_recall": 0.4257329266226063,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.01284,
+      "entities": 25000,
+      "link_recall": 0.6944958800111101,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.7220285564204193,
+          "recovered_truth_links": 30240,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.6685981224453128,
+          "recovered_truth_links": 29770,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 60010,
+      "reduction_factor": 133152.41063362567,
+      "reduction_ratio": 0.9999924898092701,
+      "total_candidate_pairs": 1007314,
+      "truth_links": 86408
+    },
+    "75": {
+      "any_hit_recall": 0.9230638874766989,
+      "candidate_width": {
+        "max": 75,
+        "mean": 57.40712,
+        "p95": 75,
+        "p99": 75
+      },
+      "complete_entity_recall": 0.4626334519572954,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.01284,
+      "entities": 25000,
+      "link_recall": 0.7226067030830479,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.750441717205482,
+          "recovered_truth_links": 31430,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.6964245609306922,
+          "recovered_truth_links": 31009,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 62439,
+      "reduction_factor": 93456.20359634832,
+      "reduction_ratio": 0.999989299800746,
+      "total_candidate_pairs": 1435178,
+      "truth_links": 86408
+    }
+  },
+  "channels": {
+    "accent_name_exact": {
+      "candidate_pairs": 334159,
+      "incremental_truth_links": 6214,
+      "recovered_truth_links": 26080
+    },
+    "canonical_address_exact": {
+      "candidate_pairs": 12555,
+      "incremental_truth_links": 1962,
+      "recovered_truth_links": 10091
+    },
+    "canonical_address_token": {
+      "candidate_pairs": 3565840,
+      "incremental_truth_links": 0,
+      "recovered_truth_links": 46892
+    },
+    "canonical_name_exact": {
+      "candidate_pairs": 256809,
+      "incremental_truth_links": 836,
+      "recovered_truth_links": 19593
+    },
+    "canonical_name_token": {
+      "candidate_pairs": 1234253,
+      "incremental_truth_links": 0,
+      "recovered_truth_links": 28227
+    },
+    "phonetic_exact": {
+      "candidate_pairs": 948576,
+      "incremental_truth_links": 2574,
+      "recovered_truth_links": 35477
+    },
+    "postal_exact": {
+      "candidate_pairs": 73089,
+      "incremental_truth_links": 0,
+      "recovered_truth_links": 3916
+    },
+    "raw_address_exact": {
+      "candidate_pairs": 8795,
+      "incremental_truth_links": 5959,
+      "recovered_truth_links": 7149
+    },
+    "raw_address_token": {
+      "candidate_pairs": 3555956,
+      "incremental_truth_links": 19513,
+      "recovered_truth_links": 46930
+    },
+    "raw_name_exact": {
+      "candidate_pairs": 248907,
+      "incremental_truth_links": 18806,
+      "recovered_truth_links": 18806
+    },
+    "raw_name_token": {
+      "candidate_pairs": 1234253,
+      "incremental_truth_links": 15781,
+      "recovered_truth_links": 28227
+    },
+    "romanized_exact": {
+      "candidate_pairs": 334177,
+      "incremental_truth_links": 0,
+      "recovered_truth_links": 26080
+    },
+    "romanized_ngram": {
+      "candidate_pairs": 1644000,
+      "incremental_truth_links": 617,
+      "recovered_truth_links": 9863
+    },
+    "romanized_token": {
+      "candidate_pairs": 1246412,
+      "incremental_truth_links": 21,
+      "recovered_truth_links": 28381
+    }
+  },
+  "config": {
+    "cap": 50,
+    "exact_pool": 250,
+    "max_tokens_per_field": 4,
+    "ngram_posting_limit": 400,
+    "rescue_quota": 10,
+    "source_floor": 2,
+    "token_posting_limit": 250
+  },
+  "config_sha256": "fa7dc22a7878da2e498af13ae2a080fc9670d8ef30cfc6b20835168b1bba4592",
+  "country_slices": {
+    "India": {
+      "entities": 10005,
+      "link_recall": 0.7177683198702915,
+      "mean_width": 42.00179910044977,
+      "raw_link_recall": 0.6706911028113147,
+      "recovered_truth_links": 24791,
+      "truth_links": 34539
+    },
+    "US": {
+      "entities": 14995,
+      "link_recall": 0.678999016753745,
+      "mean_width": 39.15211737245749,
+      "raw_link_recall": 0.5931481231564133,
+      "recovered_truth_links": 35219,
+      "truth_links": 51869
+    }
+  },
+  "elapsed_seconds": 1227.669,
+  "entities": 25000,
+  "index_file": "artifacts/blocking/train_canonical_v1.sqlite",
+  "index_schema_version": "phase2-canonical-v1",
+  "index_sha256": "948ba0ace61610bd976558dca020d0061bbbcd7b9a7960b0c7b9465b8c0cbb31",
+  "misses_sha256": "86000270619820cc8fac31b4611abaa3edcb9754d0f8aed136e4a5f2db674fc6",
+  "normalizer_version": "2.0.0",
+  "pareto_frontier": [
+    {
+      "cap": 10,
+      "link_recall": 0.5545319877789093,
+      "mean_width": 8.80924,
+      "rescue_quota": 0
+    },
+    {
+      "cap": 10,
+      "link_recall": 0.5662091473011758,
+      "mean_width": 8.96608,
+      "rescue_quota": 2
+    },
+    {
+      "cap": 10,
+      "link_recall": 0.5678409406536432,
+      "mean_width": 9.0772,
+      "rescue_quota": 5
+    },
+    {
+      "cap": 10,
+      "link_recall": 0.5681071197111378,
+      "mean_width": 9.1482,
+      "rescue_quota": 10
+    },
+    {
+      "cap": 10,
+      "link_recall": 0.5681071197111378,
+      "mean_width": 9.1482,
+      "rescue_quota": 20
+    },
+    {
+      "cap": 20,
+      "link_recall": 0.5984746782705305,
+      "mean_width": 16.92396,
+      "rescue_quota": 0
+    },
+    {
+      "cap": 20,
+      "link_recall": 0.610799925932784,
+      "mean_width": 17.13384,
+      "rescue_quota": 2
+    },
+    {
+      "cap": 20,
+      "link_recall": 0.6129756504027405,
+      "mean_width": 17.3144,
+      "rescue_quota": 5
+    },
+    {
+      "cap": 20,
+      "link_recall": 0.6135890195352283,
+      "mean_width": 17.50744,
+      "rescue_quota": 10
+    },
+    {
+      "cap": 20,
+      "link_recall": 0.614098231645218,
+      "mean_width": 17.68376,
+      "rescue_quota": 20
+    },
+    {
+      "cap": 30,
+      "link_recall": 0.637602999722248,
+      "mean_width": 24.644,
+      "rescue_quota": 0
+    },
+    {
+      "cap": 30,
+      "link_recall": 0.6502522914544949,
+      "mean_width": 24.91496,
+      "rescue_quota": 2
+    },
+    {
+      "cap": 30,
+      "link_recall": 0.6527404869919452,
+      "mean_width": 25.17328,
+      "rescue_quota": 5
+    },
+    {
+      "cap": 30,
+      "link_recall": 0.6537473382094251,
+      "mean_width": 25.46324,
+      "rescue_quota": 10
+    },
+    {
+      "cap": 30,
+      "link_recall": 0.6546153133969077,
+      "mean_width": 25.80108,
+      "rescue_quota": 20
+    },
+    {
+      "cap": 50,
+      "link_recall": 0.6771363762614573,
+      "mean_width": 39.1004,
+      "rescue_quota": 0
+    },
+    {
+      "cap": 50,
+      "link_recall": 0.6902948801036941,
+      "mean_width": 39.44276,
+      "rescue_quota": 2
+    },
+    {
+      "cap": 50,
+      "link_recall": 0.6930029626886399,
+      "mean_width": 39.80832,
+      "rescue_quota": 5
+    },
+    {
+      "cap": 50,
+      "link_recall": 0.6944958800111101,
+      "mean_width": 40.29256,
+      "rescue_quota": 10
+    },
+    {
+      "cap": 50,
+      "link_recall": 0.6960698083510786,
+      "mean_width": 40.9842,
+      "rescue_quota": 20
+    },
+    {
+      "cap": 75,
+      "link_recall": 0.704298213128414,
+      "mean_width": 55.93364,
+      "rescue_quota": 0
+    },
+    {
+      "cap": 75,
+      "link_recall": 0.7179080640681419,
+      "mean_width": 56.34152,
+      "rescue_quota": 2
+    },
+    {
+      "cap": 75,
+      "link_recall": 0.7209054717155818,
+      "mean_width": 56.7932,
+      "rescue_quota": 5
+    },
+    {
+      "cap": 75,
+      "link_recall": 0.7226067030830479,
+      "mean_width": 57.40712,
+      "rescue_quota": 10
+    },
+    {
+      "cap": 75,
+      "link_recall": 0.724354226460513,
+      "mean_width": 58.32772,
+      "rescue_quota": 20
+    },
+    {
+      "cap": 100,
+      "link_recall": 0.725800851772984,
+      "mean_width": 71.59804,
+      "rescue_quota": 0
+    },
+    {
+      "cap": 100,
+      "link_recall": 0.739700027775206,
+      "mean_width": 72.06032,
+      "rescue_quota": 2
+    },
+    {
+      "cap": 100,
+      "link_recall": 0.742801592445144,
+      "mean_width": 72.58472,
+      "rescue_quota": 5
+    },
+    {
+      "cap": 100,
+      "link_recall": 0.744699564855106,
+      "mean_width": 73.30616,
+      "rescue_quota": 10
+    },
+    {
+      "cap": 100,
+      "link_recall": 0.7465975372650681,
+      "mean_width": 74.4036,
+      "rescue_quota": 20
+    }
+  ],
+  "peak_rss_kib": 211440,
+  "promotion_check": {
+    "bootstrap_lower_bound_above_zero": true,
+    "eligible": true,
+    "selected_point_on_pareto_frontier": true
+  },
+  "provenance_sha256": "5c699525237aea4d0f9ff5e7f4d888b71f2535e3852bcf4d4efac3c66b0927e8",
+  "provisional": true,
+  "raw_to_union_bootstrap": {
+    "ci95_lower": 0.0673939460575205,
+    "ci95_upper": 0.07187432217935562,
+    "delta": 0.06966932042237121,
+    "promote": true,
+    "resamples": 2000,
+    "seed": 42
+  },
+  "requested_ids_hash_order": "sorted",
+  "requested_ids_sha256": "ffc47cbc3b5585c2ac163335ec518a5efc220e5dd49066788cf97de796abe3ac",
+  "rescue_quota_sweep": {
+    "0": {
+      "any_hit_recall": 0.8959074733096085,
+      "candidate_width": {
+        "max": 50,
+        "mean": 39.1004,
+        "p95": 50,
+        "p99": 50
+      },
+      "complete_entity_recall": 0.4142094560244026,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.02568,
+      "entities": 25000,
+      "link_recall": 0.6771363762614573,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.7053388090349076,
+          "recovered_truth_links": 29541,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.6506086331581548,
+          "recovered_truth_links": 28969,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 58510,
+      "reduction_factor": 137212.18950701272,
+      "reduction_ratio": 0.9999927120177617,
+      "total_candidate_pairs": 977510,
+      "truth_links": 86408
+    },
+    "10": {
+      "any_hit_recall": 0.9090408405355025,
+      "candidate_width": {
+        "max": 50,
+        "mean": 40.29256,
+        "p95": 50,
+        "p99": 50
+      },
+      "complete_entity_recall": 0.4257329266226063,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.01284,
+      "entities": 25000,
+      "link_recall": 0.6944958800111101,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.7220285564204193,
+          "recovered_truth_links": 30240,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.6685981224453128,
+          "recovered_truth_links": 29770,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 60010,
+      "reduction_factor": 133152.41063362567,
+      "reduction_ratio": 0.9999924898092701,
+      "total_candidate_pairs": 1007314,
+      "truth_links": 86408
+    },
+    "2": {
+      "any_hit_recall": 0.9059057786815794,
+      "candidate_width": {
+        "max": 50,
+        "mean": 39.44276,
+        "p95": 50,
+        "p99": 50
+      },
+      "complete_entity_recall": 0.42242840196576853,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.01284,
+      "entities": 25000,
+      "link_recall": 0.6902948801036941,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.7182799293252471,
+          "recovered_truth_links": 30083,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.6639716120918115,
+          "recovered_truth_links": 29564,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 59647,
+      "reduction_factor": 136021.19868386493,
+      "reduction_ratio": 0.9999926482047675,
+      "total_candidate_pairs": 986069,
+      "truth_links": 86408
+    },
+    "20": {
+      "any_hit_recall": 0.9100152516522624,
+      "candidate_width": {
+        "max": 50,
+        "mean": 40.9842,
+        "p95": 50,
+        "p99": 50
+      },
+      "complete_entity_recall": 0.42700389764446706,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.01284,
+      "entities": 25000,
+      "link_recall": 0.6960698083510786,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.7233178931283128,
+          "recovered_truth_links": 30294,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.6704397430714638,
+          "recovered_truth_links": 29852,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 60146,
+      "reduction_factor": 130905.36095861332,
+      "reduction_ratio": 0.9999923608934526,
+      "total_candidate_pairs": 1024605,
+      "truth_links": 86408
+    },
+    "5": {
+      "any_hit_recall": 0.907600406710727,
+      "candidate_width": {
+        "max": 50,
+        "mean": 39.80832,
+        "p95": 50,
+        "p99": 50
+      },
+      "complete_entity_recall": 0.4245890527029317,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.01284,
+      "entities": 25000,
+      "link_recall": 0.6930029626886399,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.7207392197125256,
+          "recovered_truth_links": 30186,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.6669137133360283,
+          "recovered_truth_links": 29695,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 59881,
+      "reduction_factor": 134772.11534171752,
+      "reduction_ratio": 0.9999925800674905,
+      "total_candidate_pairs": 995208,
+      "truth_links": 86408
+    }
+  },
+  "script_slices": {
+    "bengali": {
+      "link_recall": 0.46568627450980393,
+      "raw_link_recall": 0.45588235294117646,
+      "raw_recovered_truth_links": 186,
+      "recovered_truth_links": 190,
+      "truth_links": 408,
+      "union_minus_raw_recall": 0.00980392156862745
+    },
+    "devanagari": {
+      "link_recall": 0.4256655698474424,
+      "raw_link_recall": 0.4310499551301226,
+      "raw_recovered_truth_links": 1441,
+      "recovered_truth_links": 1423,
+      "truth_links": 3343,
+      "union_minus_raw_recall": -0.0053843852826802275
+    },
+    "gujarati": {
+      "link_recall": 0.5369318181818182,
+      "raw_link_recall": 0.5369318181818182,
+      "raw_recovered_truth_links": 189,
+      "recovered_truth_links": 189,
+      "truth_links": 352,
+      "union_minus_raw_recall": 0.0
+    },
+    "kannada": {
+      "link_recall": 0.5672268907563025,
+      "raw_link_recall": 0.4894957983193277,
+      "raw_recovered_truth_links": 233,
+      "recovered_truth_links": 270,
+      "truth_links": 476,
+      "union_minus_raw_recall": 0.07773109243697479
+    },
+    "latin": {
+      "link_recall": 0.7097541928526273,
+      "raw_link_recall": 0.6352683053809824,
+      "raw_recovered_truth_links": 51249,
+      "recovered_truth_links": 57258,
+      "truth_links": 80673,
+      "union_minus_raw_recall": 0.0744858874716448
+    },
+    "malayalam": {
+      "link_recall": 0.7203791469194313,
+      "raw_link_recall": 0.7345971563981043,
+      "raw_recovered_truth_links": 155,
+      "recovered_truth_links": 152,
+      "truth_links": 211,
+      "union_minus_raw_recall": -0.014218009478672985
+    },
+    "tamil": {
+      "link_recall": 0.5899772209567198,
+      "raw_link_recall": 0.5990888382687927,
+      "raw_recovered_truth_links": 263,
+      "recovered_truth_links": 259,
+      "truth_links": 439,
+      "union_minus_raw_recall": -0.009111617312072893
+    },
+    "telugu": {
+      "link_recall": 0.5316205533596838,
+      "raw_link_recall": 0.424901185770751,
+      "raw_recovered_truth_links": 215,
+      "recovered_truth_links": 269,
+      "truth_links": 506,
+      "union_minus_raw_recall": 0.1067193675889328
+    }
+  },
+  "selection_split": "loop",
+  "selection_surface": {
+    "cap=10,rescue_quota=0": {
+      "any_hit_recall": 0.8081681071004915,
+      "candidate_width": {
+        "max": 10,
+        "mean": 8.80924,
+        "p95": 10,
+        "p99": 10
+      },
+      "complete_entity_recall": 0.2827910523640061,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.02568,
+      "entities": 25000,
+      "link_recall": 0.5545319877789093,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.5819683873740509,
+          "recovered_truth_links": 24374,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.528724790010331,
+          "recovered_truth_links": 23542,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 47916,
+      "reduction_factor": 609025.4658290613,
+      "reduction_ratio": 0.9999983580325355,
+      "total_candidate_pairs": 220231,
+      "truth_links": 86408
+    },
+    "cap=10,rescue_quota=10": {
+      "any_hit_recall": 0.81888662938485,
+      "candidate_width": {
+        "max": 10,
+        "mean": 9.1482,
+        "p95": 10,
+        "p99": 10
+      },
+      "complete_entity_recall": 0.2900779528893408,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.01284,
+      "entities": 25000,
+      "link_recall": 0.5681071197111378,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.5945752351845661,
+          "recovered_truth_links": 24902,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.5432107083501774,
+          "recovered_truth_links": 24187,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 49089,
+      "reduction_factor": 586459.7947793008,
+      "reduction_ratio": 0.9999982948532723,
+      "total_candidate_pairs": 228705,
+      "truth_links": 86408
+    },
+    "cap=10,rescue_quota=2": {
+      "any_hit_recall": 0.8175732926622606,
+      "candidate_width": {
+        "max": 10,
+        "mean": 8.96608,
+        "p95": 10,
+        "p99": 10
+      },
+      "complete_entity_recall": 0.2888069818674801,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.01284,
+      "entities": 25000,
+      "link_recall": 0.5662091473011758,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.5931187622367604,
+          "recovered_truth_links": 24841,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.5408974531734267,
+          "recovered_truth_links": 24084,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 48925,
+      "reduction_factor": 598372.0304302438,
+      "reduction_ratio": 0.9999983287988924,
+      "total_candidate_pairs": 224152,
+      "truth_links": 86408
+    },
+    "cap=10,rescue_quota=20": {
+      "any_hit_recall": 0.81888662938485,
+      "candidate_width": {
+        "max": 10,
+        "mean": 9.1482,
+        "p95": 10,
+        "p99": 10
+      },
+      "complete_entity_recall": 0.2900779528893408,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.01284,
+      "entities": 25000,
+      "link_recall": 0.5681071197111378,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.5945752351845661,
+          "recovered_truth_links": 24902,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.5432107083501774,
+          "recovered_truth_links": 24187,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 49089,
+      "reduction_factor": 586459.7947793008,
+      "reduction_ratio": 0.9999982948532723,
+      "total_candidate_pairs": 228705,
+      "truth_links": 86408
+    },
+    "cap=10,rescue_quota=5": {
+      "any_hit_recall": 0.8186324351804779,
+      "candidate_width": {
+        "max": 10,
+        "mean": 9.0772,
+        "p95": 10,
+        "p99": 10
+      },
+      "complete_entity_recall": 0.2899932214878834,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.01284,
+      "entities": 25000,
+      "link_recall": 0.5678409406536432,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.5943842223389523,
+          "recovered_truth_links": 24894,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.5428738265283205,
+          "recovered_truth_links": 24172,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 49066,
+      "reduction_factor": 591046.9632265456,
+      "reduction_ratio": 0.9999983080870688,
+      "total_candidate_pairs": 226930,
+      "truth_links": 86408
+    },
+    "cap=100,rescue_quota=0": {
+      "any_hit_recall": 0.9198017285205897,
+      "candidate_width": {
+        "max": 100,
+        "mean": 71.59804,
+        "p95": 100,
+        "p99": 100
+      },
+      "complete_entity_recall": 0.47890188103711234,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.02568,
+      "entities": 25000,
+      "link_recall": 0.725800851772984,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.7529248841984624,
+          "recovered_truth_links": 31534,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.7002874724879845,
+          "recovered_truth_links": 31181,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 62715,
+      "reduction_factor": 74932.93803294057,
+      "reduction_ratio": 0.9999866547338694,
+      "total_candidate_pairs": 1789951,
+      "truth_links": 86408
+    },
+    "cap=100,rescue_quota=10": {
+      "any_hit_recall": 0.9333163870530419,
+      "candidate_width": {
+        "max": 100,
+        "mean": 73.30616,
+        "p95": 100,
+        "p99": 100
+      },
+      "complete_entity_recall": 0.4926283680732079,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.01284,
+      "entities": 25000,
+      "link_recall": 0.744699564855106,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.7717874027028317,
+          "recovered_truth_links": 32324,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.7192202308763419,
+          "recovered_truth_links": 32024,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 64348,
+      "reduction_factor": 73186.91218582449,
+      "reduction_ratio": 0.999986336354819,
+      "total_candidate_pairs": 1832654,
+      "truth_links": 86408
+    },
+    "cap=100,rescue_quota=2": {
+      "any_hit_recall": 0.9298000338925606,
+      "candidate_width": {
+        "max": 100,
+        "mean": 72.06032,
+        "p95": 100,
+        "p99": 100
+      },
+      "complete_entity_recall": 0.48868835790543974,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.01284,
+      "entities": 25000,
+      "link_recall": 0.739700027775206,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.7667733155054678,
+          "recovered_truth_links": 32114,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.7142343799128599,
+          "recovered_truth_links": 31802,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 63916,
+      "reduction_factor": 74452.22966814469,
+      "reduction_ratio": 0.9999865685688064,
+      "total_candidate_pairs": 1801508,
+      "truth_links": 86408
+    },
+    "cap=100,rescue_quota=20": {
+      "any_hit_recall": 0.9345449923741739,
+      "candidate_width": {
+        "max": 100,
+        "mean": 74.4036,
+        "p95": 100,
+        "p99": 100
+      },
+      "complete_entity_recall": 0.4941111675987121,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.01284,
+      "entities": 25000,
+      "link_recall": 0.7465975372650681,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.7732677522563393,
+          "recovered_truth_links": 32386,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.7215110272649687,
+          "recovered_truth_links": 32126,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 64512,
+      "reduction_factor": 72107.41811686532,
+      "reduction_ratio": 0.9999861318013303,
+      "total_candidate_pairs": 1860090,
+      "truth_links": 86408
+    },
+    "cap=100,rescue_quota=5": {
+      "any_hit_recall": 0.9317488561260803,
+      "candidate_width": {
+        "max": 100,
+        "mean": 72.58472,
+        "p95": 100,
+        "p99": 100
+      },
+      "complete_entity_recall": 0.4911455685477038,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.01284,
+      "entities": 25000,
+      "link_recall": 0.742801592445144,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.769877274246693,
+          "recovered_truth_links": 32244,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.7173336926739433,
+          "recovered_truth_links": 31940,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 64184,
+      "reduction_factor": 73914.33754376954,
+      "reduction_ratio": 0.9999864708251034,
+      "total_candidate_pairs": 1814618,
+      "truth_links": 86408
+    },
+    "cap=20,rescue_quota=0": {
+      "any_hit_recall": 0.8410015251652262,
+      "candidate_width": {
+        "max": 20,
+        "mean": 16.92396,
+        "p95": 20,
+        "p99": 20
+      },
+      "complete_entity_recall": 0.3289273004575496,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.02568,
+      "entities": 25000,
+      "link_recall": 0.5984746782705305,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.6254476863569075,
+          "recovered_truth_links": 26195,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.5731033553429457,
+          "recovered_truth_links": 25518,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 51713,
+      "reduction_factor": 317009.2280175562,
+      "reduction_ratio": 0.999996845517696,
+      "total_candidate_pairs": 423099,
+      "truth_links": 86408
+    },
+    "cap=20,rescue_quota=10": {
+      "any_hit_recall": 0.8524402643619725,
+      "candidate_width": {
+        "max": 20,
+        "mean": 17.50744,
+        "p95": 20,
+        "p99": 20
+      },
+      "complete_entity_recall": 0.33790882901203184,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.01284,
+      "entities": 25000,
+      "link_recall": 0.6135890195352283,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.6395110071152285,
+          "recovered_truth_links": 26784,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.5892063064277051,
+          "recovered_truth_links": 26235,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 53019,
+      "reduction_factor": 306444.0886046161,
+      "reduction_ratio": 0.9999967367619831,
+      "total_candidate_pairs": 437686,
+      "truth_links": 86408
+    },
+    "cap=20,rescue_quota=2": {
+      "any_hit_recall": 0.8506609049313676,
+      "candidate_width": {
+        "max": 20,
+        "mean": 17.13384,
+        "p95": 20,
+        "p99": 20
+      },
+      "complete_entity_recall": 0.3357905439755974,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.01284,
+      "entities": 25000,
+      "link_recall": 0.610799925932784,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.6373382359963707,
+          "recovered_truth_links": 26693,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.5858374882091363,
+          "recovered_truth_links": 26085,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 52778,
+      "reduction_factor": 313126.04148281994,
+      "reduction_ratio": 0.9999968063978477,
+      "total_candidate_pairs": 428346,
+      "truth_links": 86408
+    },
+    "cap=20,rescue_quota=20": {
+      "any_hit_recall": 0.852652092865616,
+      "candidate_width": {
+        "max": 20,
+        "mean": 17.68376,
+        "p95": 20,
+        "p99": 20
+      },
+      "complete_entity_recall": 0.33829012031859007,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.01284,
+      "entities": 25000,
+      "link_recall": 0.614098231645218,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.6399885392292631,
+          "recovered_truth_links": 26804,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.5897453173426762,
+          "recovered_truth_links": 26259,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 53063,
+      "reduction_factor": 303388.617273702,
+      "reduction_ratio": 0.9999967038974337,
+      "total_candidate_pairs": 442094,
+      "truth_links": 86408
+    },
+    "cap=20,rescue_quota=5": {
+      "any_hit_recall": 0.851974241653957,
+      "candidate_width": {
+        "max": 20,
+        "mean": 17.3144,
+        "p95": 20,
+        "p99": 20
+      },
+      "complete_entity_recall": 0.33740044060328755,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.01284,
+      "entities": 25000,
+      "link_recall": 0.6129756504027405,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.6390812282125973,
+          "recovered_truth_links": 26766,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.5884202488433724,
+          "recovered_truth_links": 26200,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 52966,
+      "reduction_factor": 309860.6647992422,
+      "reduction_ratio": 0.9999967727429984,
+      "total_candidate_pairs": 432860,
+      "truth_links": 86408
+    },
+    "cap=30,rescue_quota=0": {
+      "any_hit_recall": 0.8735807490255889,
+      "candidate_width": {
+        "max": 30,
+        "mean": 24.644,
+        "p95": 30,
+        "p99": 30
+      },
+      "complete_entity_recall": 0.36764955092357227,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.02568,
+      "entities": 25000,
+      "link_recall": 0.637602999722248,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.6661811756840648,
+          "recovered_truth_links": 27901,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.6107218254502987,
+          "recovered_truth_links": 27193,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 55094,
+      "reduction_factor": 217702.1382324298,
+      "reduction_ratio": 0.999995406567854,
+      "total_candidate_pairs": 616100,
+      "truth_links": 86408
+    },
+    "cap=30,rescue_quota=10": {
+      "any_hit_recall": 0.8860362650398238,
+      "candidate_width": {
+        "max": 30,
+        "mean": 25.46324,
+        "p95": 30,
+        "p99": 30
+      },
+      "complete_entity_recall": 0.37764785629554315,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.01284,
+      "entities": 25000,
+      "link_recall": 0.6537473382094251,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.6815338331502794,
+          "recovered_truth_links": 28544,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.6276108341193909,
+          "recovered_truth_links": 27945,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 56489,
+      "reduction_factor": 210697.9117582837,
+      "reduction_ratio": 0.9999952538684809,
+      "total_candidate_pairs": 636581,
+      "truth_links": 86408
+    },
+    "cap=30,rescue_quota=2": {
+      "any_hit_recall": 0.883536688696831,
+      "candidate_width": {
+        "max": 30,
+        "mean": 24.91496,
+        "p95": 30,
+        "p99": 30
+      },
+      "complete_entity_recall": 0.3748940857481783,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.01284,
+      "entities": 25000,
+      "link_recall": 0.6502522914544949,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.6786208872546678,
+          "recovered_truth_links": 28422,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.6235682522571082,
+          "recovered_truth_links": 27765,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 56187,
+      "reduction_factor": 215334.5417612551,
+      "reduction_ratio": 0.999995356063213,
+      "total_candidate_pairs": 622874,
+      "truth_links": 86408
+    },
+    "cap=30,rescue_quota=20": {
+      "any_hit_recall": 0.8865022877478393,
+      "candidate_width": {
+        "max": 30,
+        "mean": 25.80108,
+        "p95": 30,
+        "p99": 30
+      },
+      "complete_entity_recall": 0.3781986104050161,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.01284,
+      "entities": 25000,
+      "link_recall": 0.6546153133969077,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.6822262547156296,
+          "recovered_truth_links": 28573,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.6286439383730854,
+          "recovered_truth_links": 27991,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 56564,
+      "reduction_factor": 207939.02792441245,
+      "reduction_ratio": 0.9999951908979763,
+      "total_candidate_pairs": 645027,
+      "truth_links": 86408
+    },
+    "cap=30,rescue_quota=5": {
+      "any_hit_recall": 0.8850618539230639,
+      "candidate_width": {
+        "max": 30,
+        "mean": 25.17328,
+        "p95": 30,
+        "p99": 30
+      },
+      "complete_entity_recall": 0.37675817658024063,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.01284,
+      "entities": 25000,
+      "link_recall": 0.6527404869919452,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.6807697817678239,
+          "recovered_truth_links": 28512,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.6263756007725824,
+          "recovered_truth_links": 27890,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 56402,
+      "reduction_factor": 213124.8488317772,
+      "reduction_ratio": 0.9999953079145605,
+      "total_candidate_pairs": 629332,
+      "truth_links": 86408
+    },
+    "cap=50,rescue_quota=0": {
+      "any_hit_recall": 0.8959074733096085,
+      "candidate_width": {
+        "max": 50,
+        "mean": 39.1004,
+        "p95": 50,
+        "p99": 50
+      },
+      "complete_entity_recall": 0.4142094560244026,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.02568,
+      "entities": 25000,
+      "link_recall": 0.6771363762614573,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.7053388090349076,
+          "recovered_truth_links": 29541,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.6506086331581548,
+          "recovered_truth_links": 28969,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 58510,
+      "reduction_factor": 137212.18950701272,
+      "reduction_ratio": 0.9999927120177617,
+      "total_candidate_pairs": 977510,
+      "truth_links": 86408
+    },
+    "cap=50,rescue_quota=10": {
+      "any_hit_recall": 0.9090408405355025,
+      "candidate_width": {
+        "max": 50,
+        "mean": 40.29256,
+        "p95": 50,
+        "p99": 50
+      },
+      "complete_entity_recall": 0.4257329266226063,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.01284,
+      "entities": 25000,
+      "link_recall": 0.6944958800111101,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.7220285564204193,
+          "recovered_truth_links": 30240,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.6685981224453128,
+          "recovered_truth_links": 29770,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 60010,
+      "reduction_factor": 133152.41063362567,
+      "reduction_ratio": 0.9999924898092701,
+      "total_candidate_pairs": 1007314,
+      "truth_links": 86408
+    },
+    "cap=50,rescue_quota=2": {
+      "any_hit_recall": 0.9059057786815794,
+      "candidate_width": {
+        "max": 50,
+        "mean": 39.44276,
+        "p95": 50,
+        "p99": 50
+      },
+      "complete_entity_recall": 0.42242840196576853,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.01284,
+      "entities": 25000,
+      "link_recall": 0.6902948801036941,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.7182799293252471,
+          "recovered_truth_links": 30083,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.6639716120918115,
+          "recovered_truth_links": 29564,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 59647,
+      "reduction_factor": 136021.19868386493,
+      "reduction_ratio": 0.9999926482047675,
+      "total_candidate_pairs": 986069,
+      "truth_links": 86408
+    },
+    "cap=50,rescue_quota=20": {
+      "any_hit_recall": 0.9100152516522624,
+      "candidate_width": {
+        "max": 50,
+        "mean": 40.9842,
+        "p95": 50,
+        "p99": 50
+      },
+      "complete_entity_recall": 0.42700389764446706,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.01284,
+      "entities": 25000,
+      "link_recall": 0.6960698083510786,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.7233178931283128,
+          "recovered_truth_links": 30294,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.6704397430714638,
+          "recovered_truth_links": 29852,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 60146,
+      "reduction_factor": 130905.36095861332,
+      "reduction_ratio": 0.9999923608934526,
+      "total_candidate_pairs": 1024605,
+      "truth_links": 86408
+    },
+    "cap=50,rescue_quota=5": {
+      "any_hit_recall": 0.907600406710727,
+      "candidate_width": {
+        "max": 50,
+        "mean": 39.80832,
+        "p95": 50,
+        "p99": 50
+      },
+      "complete_entity_recall": 0.4245890527029317,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.01284,
+      "entities": 25000,
+      "link_recall": 0.6930029626886399,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.7207392197125256,
+          "recovered_truth_links": 30186,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.6669137133360283,
+          "recovered_truth_links": 29695,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 59881,
+      "reduction_factor": 134772.11534171752,
+      "reduction_ratio": 0.9999925800674905,
+      "total_candidate_pairs": 995208,
+      "truth_links": 86408
+    },
+    "cap=75,rescue_quota=0": {
+      "any_hit_recall": 0.9096763260464328,
+      "candidate_width": {
+        "max": 75,
+        "mean": 55.93364,
+        "p95": 75,
+        "p99": 75
+      },
+      "complete_entity_recall": 0.449839010337231,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.02568,
+      "entities": 25000,
+      "link_recall": 0.704298213128414,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.7323671266892698,
+          "recovered_truth_links": 30673,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.6778960607285631,
+          "recovered_truth_links": 30184,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 60857,
+      "reduction_factor": 95918.15398747516,
+      "reduction_ratio": 0.9999895744448947,
+      "total_candidate_pairs": 1398341,
+      "truth_links": 86408
+    },
+    "cap=75,rescue_quota=10": {
+      "any_hit_recall": 0.9230638874766989,
+      "candidate_width": {
+        "max": 75,
+        "mean": 57.40712,
+        "p95": 75,
+        "p99": 75
+      },
+      "complete_entity_recall": 0.4626334519572954,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.01284,
+      "entities": 25000,
+      "link_recall": 0.7226067030830479,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.750441717205482,
+          "recovered_truth_links": 31430,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.6964245609306922,
+          "recovered_truth_links": 31009,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 62439,
+      "reduction_factor": 93456.20359634832,
+      "reduction_ratio": 0.999989299800746,
+      "total_candidate_pairs": 1435178,
+      "truth_links": 86408
+    },
+    "cap=75,rescue_quota=2": {
+      "any_hit_recall": 0.9196746314184037,
+      "candidate_width": {
+        "max": 75,
+        "mean": 56.34152,
+        "p95": 75,
+        "p99": 75
+      },
+      "complete_entity_recall": 0.458990001694628,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.01284,
+      "entities": 25000,
+      "link_recall": 0.7179080640681419,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.7458335323050476,
+          "recovered_truth_links": 31237,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.6916408390603243,
+          "recovered_truth_links": 30796,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 62033,
+      "reduction_factor": 95223.7620603775,
+      "reduction_ratio": 0.9999894984195293,
+      "total_candidate_pairs": 1408538,
+      "truth_links": 86408
+    },
+    "cap=75,rescue_quota=20": {
+      "any_hit_recall": 0.9242501270971022,
+      "candidate_width": {
+        "max": 75,
+        "mean": 58.32772,
+        "p95": 75,
+        "p99": 75
+      },
+      "complete_entity_recall": 0.46398915438061344,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.01284,
+      "entities": 25000,
+      "link_recall": 0.724354226460513,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.751874313547586,
+          "recovered_truth_links": 31490,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.6984683106499573,
+          "recovered_truth_links": 31100,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 62590,
+      "reduction_factor": 91981.1625518707,
+      "reduction_ratio": 0.9999891282087304,
+      "total_candidate_pairs": 1458193,
+      "truth_links": 86408
+    },
+    "cap=75,rescue_quota=5": {
+      "any_hit_recall": 0.9215387222504661,
+      "candidate_width": {
+        "max": 75,
+        "mean": 56.7932,
+        "p95": 75,
+        "p99": 75
+      },
+      "complete_entity_recall": 0.4613624809354347,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.01284,
+      "entities": 25000,
+      "link_recall": 0.7209054717155818,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.7487942314120625,
+          "recovered_truth_links": 31361,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.6946727754570363,
+          "recovered_truth_links": 30931,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 62292,
+      "reduction_factor": 94466.44130987512,
+      "reduction_ratio": 0.9999894142302163,
+      "total_candidate_pairs": 1419830,
+      "truth_links": 86408
+    }
+  },
+  "source1_file": "dataset/train/train_source1.tsv",
+  "source1_sha256": "591af0e1dfeb65cab71ea6ee8cb69df00f92d6ba6fa79e05746c938775d14973",
+  "truth_cardinality_slices": {
+    "empty": {
+      "complete_entities": 1396,
+      "complete_entity_recall": 1.0,
+      "entities": 1396,
+      "mean_width": 39.4878223495702
+    },
+    "multi": {
+      "complete_entities": 9101,
+      "complete_entity_recall": 0.40896018693268626,
+      "entities": 22254,
+      "mean_width": 40.33441179113867
+    },
+    "singleton": {
+      "complete_entities": 948,
+      "complete_entity_recall": 0.7022222222222222,
+      "entities": 1350,
+      "mean_width": 40.434814814814814
+    }
+  },
+  "truth_sha256": "7f2652a42982d7a43b10852f2312e54205346f6950903fac2e9da393e3012b3e",
+  "variants": {
+    "canonical_only": {
+      "any_hit_recall": 0.9094221318420607,
+      "candidate_width": {
+        "max": 50,
+        "mean": 40.27776,
+        "p95": 50,
+        "p99": 50
+      },
+      "complete_entity_recall": 0.42577529232333505,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.01284,
+      "entities": 25000,
+      "link_recall": 0.6947389130636052,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.7223389522945418,
+          "recovered_truth_links": 30253,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.6687777927503032,
+          "recovered_truth_links": 29778,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 60031,
+      "reduction_factor": 133201.33727893507,
+      "reduction_ratio": 0.9999924925678644,
+      "total_candidate_pairs": 1006944,
+      "truth_links": 86408
+    },
+    "raw_only": {
+      "any_hit_recall": 0.8588374851720048,
+      "candidate_width": {
+        "max": 50,
+        "mean": 38.26696,
+        "p95": 50,
+        "p99": 50
+      },
+      "complete_entity_recall": 0.37256397220810034,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.03992,
+      "entities": 25000,
+      "link_recall": 0.6241435978150172,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.6490616493959219,
+          "recovered_truth_links": 27184,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.6007052059470871,
+          "recovered_truth_links": 26747,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 53931,
+      "reduction_factor": 140200.61940117533,
+      "reduction_ratio": 0.9999928673638941,
+      "total_candidate_pairs": 956674,
+      "truth_links": 86408
+    },
+    "union": {
+      "any_hit_recall": 0.9090408405355025,
+      "candidate_width": {
+        "max": 50,
+        "mean": 40.29256,
+        "p95": 50,
+        "p99": 50
+      },
+      "complete_entity_recall": 0.4257329266226063,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.01284,
+      "entities": 25000,
+      "link_recall": 0.6944958800111101,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.7220285564204193,
+          "recovered_truth_links": 30240,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.6685981224453128,
+          "recovered_truth_links": 29770,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 60010,
+      "reduction_factor": 133152.41063362567,
+      "reduction_ratio": 0.9999924898092701,
+      "total_candidate_pairs": 1007314,
+      "truth_links": 86408
+    }
+  },
+  "workers": 16
+}

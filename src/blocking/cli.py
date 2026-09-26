@@ -60,6 +60,7 @@ def parser() -> argparse.ArgumentParser:
     run2.add_argument("--report", type=Path, required=True)
     run2.add_argument("--resources", type=Path, default=Path("artifacts/resources"))
     run2.add_argument("--no-sweep", action="store_true")
+    run2.add_argument("--workers", type=int, default=1)
     semantic_build = commands.add_parser("phase2-semantic-build")
     semantic_build.add_argument("--source2", type=Path, required=True)
     semantic_build.add_argument("--source3", type=Path, required=True)
@@ -170,6 +171,7 @@ def main() -> None:
             () if args.no_sweep else PHASE2_CAP_SWEEP,
             () if args.no_sweep else RESCUE_QUOTA_SWEEP,
             args.resources,
+            args.workers,
         )
         if truth is not None:
             report["selection_split"] = "loop"

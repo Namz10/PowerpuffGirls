@@ -124,6 +124,7 @@ class Phase2BlockingTest(unittest.TestCase):
                 (5, 10),
                 (0, 5),
                 Path(__file__).resolve().parents[2] / "artifacts" / "resources",
+                workers=2,
             )
             self.assertTrue(report["provisional"])
             self.assertIn("raw_only", report["variants"])

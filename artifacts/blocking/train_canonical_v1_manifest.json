@@ -1,0 +1,46 @@
+{
+  "elapsed_seconds": 2659.707,
+  "implementation_sha256": {
+    "src/blocking/phase2.py": "036568d5da2a455b3354a66419c6d6c1ade4dae3384d07563ef7d6db74be3df3",
+    "src/represent/country_rules.py": "4fcc07ac5adab8a81bdac1db9d012053724de5e74ced5b753b9b0870992c90a3",
+    "src/represent/normalize_address.py": "bffe5cb67b9e1fad1ed462c533702c7753ec6a1961181674000d0ab7c149a343",
+    "src/represent/normalize_name.py": "300030f85cab80abb6bc641efd409d668f635bfd892ca6a5ae1fcf1d1bc89515",
+    "src/represent/romanization.py": "079dd0eb596264c0fa751e9a0627a4667d093ed2536def06403457fa77ce4d03"
+  },
+  "index_bytes": 13364240384,
+  "index_sha256": "948ba0ace61610bd976558dca020d0061bbbcd7b9a7960b0c7b9465b8c0cbb31",
+  "inputs": [
+    {
+      "path": "dataset/train/train_source2.tsv",
+      "sha256": "6336c1a055eec79cf8a6d99fdc8d32a2e4d9dc2662e00963cb35d66b89ed09ed"
+    },
+    {
+      "path": "dataset/train/train_source3.tsv",
+      "sha256": "67da22f5151898ff3006febd836c1a159e97ae95efa7257a5aff4fda685e58e9"
+    }
+  ],
+  "normalizer_version": "2.0.0",
+  "schema_version": "phase2-canonical-v1",
+  "shards": [
+    {
+      "country": "India",
+      "rows": 2017799,
+      "source": "S2"
+    },
+    {
+      "country": "India",
+      "rows": 2115547,
+      "source": "S3"
+    },
+    {
+      "country": "US",
+      "rows": 3016817,
+      "source": "S2"
+    },
+    {
+      "country": "US",
+      "rows": 3170056,
+      "source": "S3"
+    }
+  ]
+}

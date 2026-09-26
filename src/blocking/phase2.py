@@ -15,7 +15,9 @@ import random
 import resource
 import sqlite3
 import time
-from collections import Counter, defaultdict
+import threading
+from collections import Counter, defaultdict, deque
+from concurrent.futures import ProcessPoolExecutor
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Iterable, Iterator, Mapping, Sequence
@@ -229,6 +231,7 @@ def _connect(path: Path, writable: bool) -> sqlite3.Connection:
         connection = sqlite3.connect(f"file:{path}?mode=ro", uri=True)
         connection.execute("PRAGMA query_only=ON")
         connection.execute("PRAGMA cache_size=-131072")
+        connection.execute("PRAGMA mmap_size=17179869184")
     return connection
 
 
@@ -487,7 +490,7 @@ class Phase2Index:
             f"SELECT r.entity_id, r.source_script, r.{field_name} FROM fts_{shard_id} "
             f"JOIN records_{shard_id} r ON r.rowid=fts_{shard_id}.rowid "
             f"WHERE fts_{shard_id} MATCH ? LIMIT ?",
-            (expression, sum(documents for documents, _ in chosen)),
+            (expression, posting_limit),
         ):
             present = set(text.split())
             score = sum(weight for token, weight in weights.items() if token in present)
@@ -593,6 +596,45 @@ def retrieve_phase2(
                 config.max_tokens_per_field,
             )
     return sorted(evidence.items(), key=lambda pair: pair[1].rank_key(pair[0]))
+
+
+_RETRIEVAL_LOCAL = threading.local()
+
+
+def _thread_retrieve(
+    task: tuple[Path, CanonicalView, Phase2Config, frozenset[str]],
+) -> tuple[CanonicalView, list[tuple[str, Phase2Evidence]]]:
+    index_path, query, config, boilerplate = task
+    worker_index = getattr(_RETRIEVAL_LOCAL, "index", None)
+    worker_path = getattr(_RETRIEVAL_LOCAL, "path", None)
+    if worker_index is None or worker_path != index_path:
+        if worker_index is not None:
+            worker_index.close()
+        worker_index = Phase2Index(index_path)
+        _RETRIEVAL_LOCAL.index = worker_index
+        _RETRIEVAL_LOCAL.path = index_path
+    return query, retrieve_phase2(worker_index, query, config, boilerplate)
+
+
+def _bounded_parallel_retrieve(
+    tasks: Iterable[tuple[Path, CanonicalView, Phase2Config, frozenset[str]]],
+    workers: int,
+) -> Iterator[tuple[CanonicalView, list[tuple[str, Phase2Evidence]]]]:
+    """Retrieve in parallel while preserving order and bounding queued queries."""
+    iterator = iter(tasks)
+    with ProcessPoolExecutor(max_workers=workers) as pool:
+        pending = deque()
+        for _ in range(workers * 2):
+            try:
+                pending.append(pool.submit(_thread_retrieve, next(iterator)))
+            except StopIteration:
+                break
+        while pending:
+            yield pending.popleft().result()
+            try:
+                pending.append(pool.submit(_thread_retrieve, next(iterator)))
+            except StopIteration:
+                pass
 
 
 def _filtered_evidence(
@@ -749,9 +791,12 @@ def generate_phase2(
     sweep_caps: Iterable[int] = CAP_SWEEP,
     sweep_quotas: Iterable[int] = RESCUE_QUOTA_SWEEP,
     resource_path: Path | None = None,
+    workers: int = 1,
 ) -> dict:
     """Stream union candidates and produce a leakage-safe diagnostic report."""
     started = time.monotonic()
+    if workers <= 0:
+        raise ValueError("workers must be positive")
     index = Phase2Index(index_path)
     boilerplate_by_country, boilerplate_sha256 = _load_boilerplate(resource_path)
     if truth is not None and requested_ids is None:
@@ -817,24 +862,40 @@ def generate_phase2(
         with output_path.open("w", encoding="utf-8", newline="") as output:
             writer = csv.writer(output, delimiter="\t", lineterminator="\n")
             writer.writerow(CANDIDATE_HEADER)
-            for row in _source_rows(source1_path):
-                entity_id = row["entity_id"]
-                if requested_ids is not None and entity_id not in requested_ids:
-                    continue
-                if remaining_ids is not None:
-                    if entity_id not in remaining_ids:
-                        raise ValueError(f"duplicate requested Source 1 id: {entity_id}")
-                    remaining_ids.remove(entity_id)
-                query = canonicalize(
-                    entity_id, row["business_name"], row["business_address"], row["country"]
+
+            def tasks():
+                nonlocal entity_count
+                for row in _source_rows(source1_path):
+                    entity_id = row["entity_id"]
+                    if requested_ids is not None and entity_id not in requested_ids:
+                        continue
+                    if remaining_ids is not None:
+                        if entity_id not in remaining_ids:
+                            raise ValueError(f"duplicate requested Source 1 id: {entity_id}")
+                        remaining_ids.remove(entity_id)
+                    query = canonicalize(
+                        entity_id,
+                        row["business_name"],
+                        row["business_address"],
+                        row["country"],
+                    )
+                    entity_count += 1
+                    country_counts[query.country] += 1
+                    source_order_ids.update(f"{query.entity_id}\n".encode("utf-8"))
+                    boilerplate = boilerplate_by_country.get(
+                        query.country, boilerplate_by_country.get("global", frozenset())
+                    )
+                    yield index_path, query, config, boilerplate
+
+            ranked_queries = (
+                (
+                    (task[1], retrieve_phase2(index, task[1], config, task[3]))
+                    for task in tasks()
                 )
-                entity_count += 1
-                country_counts[query.country] += 1
-                source_order_ids.update(f"{query.entity_id}\n".encode("utf-8"))
-                boilerplate = boilerplate_by_country.get(
-                    query.country, boilerplate_by_country.get("global", frozenset())
-                )
-                ranked = retrieve_phase2(index, query, config, boilerplate)
+                if workers == 1
+                else _bounded_parallel_retrieve(tasks(), workers)
+            )
+            for query, ranked in ranked_queries:
                 selected = select_phase2(ranked, config)
                 ids = [entity_id for entity_id, _ in selected]
                 writer.writerow((query.entity_id, ",".join(ids)))
@@ -963,6 +1024,7 @@ def generate_phase2(
         "entities": entity_count,
         "elapsed_seconds": round(time.monotonic() - started, 3),
         "peak_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+        "workers": workers,
     }
     if truth is not None:
         variant_reports = {
