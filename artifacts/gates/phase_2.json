@@ -2,7 +2,7 @@
   "artifacts": {
     "blocker_freeze": {
       "path": "artifacts/blocking/phase2_blocker_freeze.json",
-      "sha256": "58f2fb274e4010f60bf82780af9eed02671f9b8923b4f5e438a6724807b99eb4"
+      "sha256": "07f2054e58ae49368b8772877c377190845221fa1750c945ab6cb371ef9ca273"
     },
     "eval_manifest": {
       "path": "artifacts/eval/phase2/manifest.json",
@@ -30,7 +30,7 @@
     },
     "loop_report": {
       "path": "artifacts/blocking/phase2_loop_report.json",
-      "sha256": "fb5674d74eee5134313e419c04fad3fe2d57d4f147ce706e6946faa389e9f304"
+      "sha256": "b0338065aa3097aa12034b51c47efa084a7452b14033ee266c5f0105526d4415"
     },
     "resource_manifest": {
       "normalizer_version": "2.0.0",

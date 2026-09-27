@@ -1,0 +1,320 @@
+{
+  "boilerplate_sha256": "daa138c1a6e45640701a82d194c49489f8b410faf1ec58cc37ee6975aa6bdc90",
+  "candidate_file": "artifacts/blocking/phase3_loop_candidates.tsv",
+  "candidate_file_sha256": "a423048b1562ccc58abf7b4abd32035b5b68b3a89a4c4dc845f37bbf583fb22e",
+  "cap_sweep": {},
+  "channels": {
+    "accent_name_exact": {
+      "candidate_pairs": 334159,
+      "incremental_truth_links": 6214,
+      "recovered_truth_links": 26080
+    },
+    "canonical_address_exact": {
+      "candidate_pairs": 12555,
+      "incremental_truth_links": 1962,
+      "recovered_truth_links": 10091
+    },
+    "canonical_address_token": {
+      "candidate_pairs": 3393489,
+      "incremental_truth_links": 0,
+      "recovered_truth_links": 46171
+    },
+    "canonical_name_exact": {
+      "candidate_pairs": 256809,
+      "incremental_truth_links": 836,
+      "recovered_truth_links": 19593
+    },
+    "canonical_name_token": {
+      "candidate_pairs": 1229882,
+      "incremental_truth_links": 0,
+      "recovered_truth_links": 28206
+    },
+    "phonetic_exact": {
+      "candidate_pairs": 948576,
+      "incremental_truth_links": 2623,
+      "recovered_truth_links": 35477
+    },
+    "postal_exact": {
+      "candidate_pairs": 73089,
+      "incremental_truth_links": 3,
+      "recovered_truth_links": 3916
+    },
+    "raw_address_exact": {
+      "candidate_pairs": 8795,
+      "incremental_truth_links": 5959,
+      "recovered_truth_links": 7149
+    },
+    "raw_address_token": {
+      "candidate_pairs": 3385382,
+      "incremental_truth_links": 19217,
+      "recovered_truth_links": 46217
+    },
+    "raw_name_exact": {
+      "candidate_pairs": 248907,
+      "incremental_truth_links": 18806,
+      "recovered_truth_links": 18806
+    },
+    "raw_name_token": {
+      "candidate_pairs": 1229882,
+      "incremental_truth_links": 15767,
+      "recovered_truth_links": 28206
+    },
+    "romanized_exact": {
+      "candidate_pairs": 334177,
+      "incremental_truth_links": 0,
+      "recovered_truth_links": 26080
+    },
+    "romanized_ngram": {
+      "candidate_pairs": 1552564,
+      "incremental_truth_links": 610,
+      "recovered_truth_links": 9619
+    },
+    "romanized_token": {
+      "candidate_pairs": 1241469,
+      "incremental_truth_links": 21,
+      "recovered_truth_links": 28356
+    }
+  },
+  "config": {
+    "cap": 50,
+    "exact_pool": 250,
+    "max_tokens_per_field": 4,
+    "ngram_posting_limit": 400,
+    "rescue_quota": 10,
+    "source_floor": 2,
+    "token_posting_limit": 250
+  },
+  "config_sha256": "fa7dc22a7878da2e498af13ae2a080fc9670d8ef30cfc6b20835168b1bba4592",
+  "country_slices": {
+    "India": {
+      "entities": 10005,
+      "link_recall": 0.7131358753872434,
+      "mean_width": 42.00179910044977,
+      "raw_link_recall": 0.6653348388777903,
+      "recovered_truth_links": 24631,
+      "truth_links": 34539
+    },
+    "US": {
+      "entities": 14995,
+      "link_recall": 0.6762420713721105,
+      "mean_width": 39.15211737245749,
+      "raw_link_recall": 0.5902176637297808,
+      "recovered_truth_links": 35076,
+      "truth_links": 51869
+    }
+  },
+  "elapsed_seconds": 2217.913,
+  "entities": 25000,
+  "index_file": "artifacts/blocking/train_canonical_v1.sqlite",
+  "index_schema_version": "phase2-canonical-v1",
+  "index_sha256": "948ba0ace61610bd976558dca020d0061bbbcd7b9a7960b0c7b9465b8c0cbb31",
+  "misses_sha256": "aab560afbc67153e1320b6839000a4617dc572059d7e64e7768c6dcb88f3991d",
+  "normalizer_version": "2.0.0",
+  "pareto_frontier": [],
+  "peak_rss_kib": 393832,
+  "promotion_check": {
+    "bootstrap_lower_bound_above_zero": true,
+    "eligible": false,
+    "selected_point_on_pareto_frontier": false
+  },
+  "provenance_sha256": "8044ef38f009744f949e51e57c05023bc4b58638e1c4022c843f488c6a55d8ac",
+  "provisional": true,
+  "purpose": "phase3_loop_reproduction",
+  "raw_to_union_bootstrap": {
+    "ci95_lower": 0.06779815335674512,
+    "ci95_upper": 0.07225751168938764,
+    "delta": 0.07003928058516264,
+    "promote": true,
+    "resamples": 2000,
+    "seed": 42
+  },
+  "requested_ids_hash_order": "sorted",
+  "requested_ids_sha256": "ffc47cbc3b5585c2ac163335ec518a5efc220e5dd49066788cf97de796abe3ac",
+  "rescue_quota_sweep": {},
+  "script_slices": {
+    "bengali": {
+      "link_recall": 0.45588235294117646,
+      "raw_link_recall": 0.44607843137254904,
+      "raw_recovered_truth_links": 182,
+      "recovered_truth_links": 186,
+      "truth_links": 408,
+      "union_minus_raw_recall": 0.00980392156862745
+    },
+    "devanagari": {
+      "link_recall": 0.41938378701764883,
+      "raw_link_recall": 0.42476817230032904,
+      "raw_recovered_truth_links": 1420,
+      "recovered_truth_links": 1402,
+      "truth_links": 3343,
+      "union_minus_raw_recall": -0.0053843852826802275
+    },
+    "gujarati": {
+      "link_recall": 0.5340909090909091,
+      "raw_link_recall": 0.53125,
+      "raw_recovered_truth_links": 187,
+      "recovered_truth_links": 188,
+      "truth_links": 352,
+      "union_minus_raw_recall": 0.002840909090909091
+    },
+    "kannada": {
+      "link_recall": 0.5651260504201681,
+      "raw_link_recall": 0.4852941176470588,
+      "raw_recovered_truth_links": 231,
+      "recovered_truth_links": 269,
+      "truth_links": 476,
+      "union_minus_raw_recall": 0.07983193277310924
+    },
+    "latin": {
+      "link_recall": 0.7065313053933782,
+      "raw_link_recall": 0.6316239634078317,
+      "raw_recovered_truth_links": 50955,
+      "recovered_truth_links": 56998,
+      "truth_links": 80673,
+      "union_minus_raw_recall": 0.07490734198554659
+    },
+    "malayalam": {
+      "link_recall": 0.7156398104265402,
+      "raw_link_recall": 0.7298578199052133,
+      "raw_recovered_truth_links": 154,
+      "recovered_truth_links": 151,
+      "truth_links": 211,
+      "union_minus_raw_recall": -0.014218009478672985
+    },
+    "tamil": {
+      "link_recall": 0.5785876993166287,
+      "raw_link_recall": 0.5876993166287016,
+      "raw_recovered_truth_links": 258,
+      "recovered_truth_links": 254,
+      "truth_links": 439,
+      "union_minus_raw_recall": -0.009111617312072893
+    },
+    "telugu": {
+      "link_recall": 0.5118577075098815,
+      "raw_link_recall": 0.4090909090909091,
+      "raw_recovered_truth_links": 207,
+      "recovered_truth_links": 259,
+      "truth_links": 506,
+      "union_minus_raw_recall": 0.10276679841897234
+    }
+  },
+  "selection_surface": {},
+  "source1_file": "dataset/train/train_source1.tsv",
+  "source1_sha256": "591af0e1dfeb65cab71ea6ee8cb69df00f92d6ba6fa79e05746c938775d14973",
+  "truth_cardinality_slices": {
+    "empty": {
+      "complete_entities": 1396,
+      "complete_entity_recall": 1.0,
+      "entities": 1396,
+      "mean_width": 39.4878223495702
+    },
+    "multi": {
+      "complete_entities": 8946,
+      "complete_entity_recall": 0.401995146939876,
+      "entities": 22254,
+      "mean_width": 40.33441179113867
+    },
+    "singleton": {
+      "complete_entities": 945,
+      "complete_entity_recall": 0.7,
+      "entities": 1350,
+      "mean_width": 40.434814814814814
+    }
+  },
+  "truth_sha256": "7f2652a42982d7a43b10852f2312e54205346f6950903fac2e9da393e3012b3e",
+  "variants": {
+    "canonical_only": {
+      "any_hit_recall": 0.9084900864260295,
+      "candidate_width": {
+        "max": 50,
+        "mean": 40.27776,
+        "p95": 50,
+        "p99": 50
+      },
+      "complete_entity_recall": 0.4190391459074733,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.01284,
+      "entities": 25000,
+      "link_recall": 0.6912207203036755,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.719187240341913,
+          "recovered_truth_links": 30121,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.6649148811930108,
+          "recovered_truth_links": 29606,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 59727,
+      "reduction_factor": 133201.33727893507,
+      "reduction_ratio": 0.9999924925678644,
+      "total_candidate_pairs": 1006944,
+      "truth_links": 86408
+    },
+    "raw_only": {
+      "any_hit_recall": 0.8577783426537875,
+      "candidate_width": {
+        "max": 50,
+        "mean": 38.26696,
+        "p95": 50,
+        "p99": 50
+      },
+      "complete_entity_recall": 0.36599728859515335,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.03992,
+      "entities": 25000,
+      "link_recall": 0.6202434959725951,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.6453846521178549,
+          "recovered_truth_links": 27030,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.596595247720433,
+          "recovered_truth_links": 26564,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 53594,
+      "reduction_factor": 140200.61940117533,
+      "reduction_ratio": 0.9999928673638941,
+      "total_candidate_pairs": 956674,
+      "truth_links": 86408
+    },
+    "union": {
+      "any_hit_recall": 0.9081087951194713,
+      "candidate_width": {
+        "max": 50,
+        "mean": 40.29256,
+        "p95": 50,
+        "p99": 50
+      },
+      "complete_entity_recall": 0.4190391459074733,
+      "country_equality_pairs": 134126287365,
+      "empty_candidate_rate": 0.01284,
+      "entities": 25000,
+      "link_recall": 0.6909892602536802,
+      "link_recall_by_source": {
+        "S2": {
+          "link_recall": 0.7188768444677904,
+          "recovered_truth_links": 30108,
+          "truth_links": 41882
+        },
+        "S3": {
+          "link_recall": 0.6647576696761442,
+          "recovered_truth_links": 29599,
+          "truth_links": 44526
+        }
+      },
+      "recovered_truth_links": 59707,
+      "reduction_factor": 133152.41063362567,
+      "reduction_ratio": 0.9999924898092701,
+      "total_candidate_pairs": 1007314,
+      "truth_links": 86408
+    }
+  },
+  "workers": 16
+}

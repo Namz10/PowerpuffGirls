@@ -1,4 +1,4 @@
-"""Command-line entry point for frozen Phase 1 and provisional Phase 2 blocking."""
+"""Command-line entry point for frozen Phase 1–3 blocking workflows."""
 
 from __future__ import annotations
 
@@ -19,6 +19,7 @@ from .phase2 import (
     load_truth as load_phase2_truth,
     write_json,
 )
+from .phase3 import generate_locked_report, reproduce_loop
 
 
 def parser() -> argparse.ArgumentParser:
@@ -88,6 +89,31 @@ def parser() -> argparse.ArgumentParser:
     semantic_union.add_argument("--probe-radius", type=int, choices=(0, 1, 2), default=1)
     semantic_union.add_argument("--lsh-bits", type=int, default=16)
     semantic_union.add_argument("--lsh-seed", type=int, default=42)
+    reproduce = commands.add_parser("phase3-reproduce-loop")
+    reproduce.add_argument("--freeze", type=Path, required=True)
+    reproduce.add_argument("--index", type=Path, required=True)
+    reproduce.add_argument("--source1", type=Path, required=True)
+    reproduce.add_argument("--ids", type=Path, required=True)
+    reproduce.add_argument("--truth", type=Path, required=True)
+    reproduce.add_argument("--resources", type=Path, default=Path("artifacts/resources"))
+    reproduce.add_argument("--output", type=Path, required=True)
+    reproduce.add_argument("--provenance", type=Path, required=True)
+    reproduce.add_argument("--misses", type=Path, required=True)
+    reproduce.add_argument("--report", type=Path, required=True)
+    reproduce.add_argument("--proof", type=Path, required=True)
+    reproduce.add_argument("--workers", type=int, default=1)
+    locked_report = commands.add_parser("phase3-generate-report")
+    locked_report.add_argument("--freeze", type=Path, required=True)
+    locked_report.add_argument("--decision-config", type=Path, required=True)
+    locked_report.add_argument("--index", type=Path, required=True)
+    locked_report.add_argument("--source1", type=Path, required=True)
+    locked_report.add_argument("--ids", type=Path, required=True)
+    locked_report.add_argument("--resources", type=Path, default=Path("artifacts/resources"))
+    locked_report.add_argument("--output", type=Path, required=True)
+    locked_report.add_argument("--provenance", type=Path, required=True)
+    locked_report.add_argument("--report", type=Path, required=True)
+    locked_report.add_argument("--manifest", type=Path, required=True)
+    locked_report.add_argument("--workers", type=int, default=1)
     return result
 
 
@@ -146,6 +172,25 @@ def main() -> None:
             args.model,
         )
         print(json.dumps(report, indent=2, sort_keys=True))
+        return
+    if args.command == "phase3-reproduce-loop":
+        proof = reproduce_loop(
+            freeze_path=args.freeze, index_path=args.index, source1_path=args.source1,
+            loop_ids_path=args.ids, truth_path=args.truth, resources_path=args.resources,
+            output_path=args.output, provenance_path=args.provenance, misses_path=args.misses,
+            report_path=args.report, proof_path=args.proof, workers=args.workers,
+        )
+        print(json.dumps(proof, indent=2, sort_keys=True))
+        return
+    if args.command == "phase3-generate-report":
+        manifest = generate_locked_report(
+            freeze_path=args.freeze, decision_config_path=args.decision_config,
+            index_path=args.index, source1_path=args.source1, report_ids_path=args.ids,
+            resources_path=args.resources, output_path=args.output,
+            provenance_path=args.provenance, report_path=args.report,
+            manifest_path=args.manifest, workers=args.workers,
+        )
+        print(json.dumps(manifest, indent=2, sort_keys=True))
         return
     if args.command == "phase2-generate":
         requested = load_requested_ids(args.ids) if args.ids else None
