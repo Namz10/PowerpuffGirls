@@ -8,7 +8,8 @@ Business Entity Resolution Challenge.
 - [Phase 1 handoff](docs/phase1_handoff.md) — completed owner-by-owner implementation status and Phase 1 gate evidence.
 - [Phase 1 raw-blocker report](src/blocking/PHASE1_REPORT.md) — measured cap frontier and selected operating point.
 - [Candidate-to-matcher contract](src/blocking/CANDIDATE_CONTRACT.md) — exact inference-set and provenance schema.
-- [Provisional Phase 2 blocker](src/blocking/PHASE2_PROVISIONAL.md) — canonical/cross-script implementation, loop-only evaluation, and selection guardrails.
+- [Phase 2 frozen blocker](src/blocking/PHASE2_PROVISIONAL.md) — canonical/cross-script retrieval, selected configuration, and the 400k fit handoff evidence.
+- [Phase 2 gate](artifacts/gates/phase_2.json) — passing formal gate, artifact fingerprints, and recorded exit conditions.
 - [Optional semantic retrieval](src/blocking/SEMANTIC_RETRIEVAL.md) — bounded SentenceTransformers indexing and lexical-candidate union on CPU or CUDA.
 - [Problem understanding and research](docs/problem_understanding_and_research.md) — background analysis and challenge constraints.
 - [Problem statement](docs/Problem%20Statement.pdf) and [challenge guidelines](docs/guidelines_and_key_instructions_amazon_ml_challenge_2026.pdf) — organizer-provided requirements.

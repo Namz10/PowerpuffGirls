@@ -1,14 +1,15 @@
 # Phase 2 handoff — Person 2 (Shriya)
 
-Status: **Representation code and resources complete; canonical Parquet is not materialized**
+Status: **Representation code and resources accepted by the closed Phase 2 gate; canonical records are materialized in the blocker SQLite index rather than a standalone Parquet file**
 
 This handoff describes the completed representation subsystem owned by Person 2 (Shriya) in Phase 2 as specified in [final_build_plan.md](final_build_plan.md).
 
-The provisional Person 3 blocker consumes this contract by canonicalizing TSV
+The frozen Person 3 blocker consumes this contract by canonicalizing TSV
 rows while it builds its disk-backed index. It therefore does not require a
-large intermediate Parquet file. If the team still requires the canonical
-Parquet named in the build plan as an independent handoff artifact, that file
-remains to be generated and fingerprinted.
+large intermediate Parquet file. The streaming index is the gate-approved
+canonical representation artifact; no standalone Parquet is required for the
+frozen blocker path. The closure evidence is in
+`artifacts/gates/phase_2.json`.
 
 ---
 

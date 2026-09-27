@@ -1,0 +1,31 @@
+{
+  "boilerplate_sha256": "daa138c1a6e45640701a82d194c49489f8b410faf1ec58cc37ee6975aa6bdc90",
+  "candidate_file": "artifacts/blocking/phase2_fit400k_candidate_pairs.tsv",
+  "candidate_file_sha256": "bd2bb5209675cefc2da43aa20ba26e0f4745897d0ed4b2298b785f38ffab6ba3",
+  "config": {
+    "cap": 50,
+    "exact_pool": 250,
+    "max_tokens_per_field": 4,
+    "ngram_posting_limit": 400,
+    "rescue_quota": 10,
+    "source_floor": 2,
+    "token_posting_limit": 250
+  },
+  "config_sha256": "fa7dc22a7878da2e498af13ae2a080fc9670d8ef30cfc6b20835168b1bba4592",
+  "elapsed_seconds": 11713.675,
+  "entities": 400000,
+  "index_file": "artifacts/blocking/train_canonical_v1.sqlite",
+  "index_schema_version": "phase2-canonical-v1",
+  "index_sha256": "948ba0ace61610bd976558dca020d0061bbbcd7b9a7960b0c7b9465b8c0cbb31",
+  "misses_sha256": null,
+  "normalizer_version": "2.0.0",
+  "peak_rss_kib": 100552,
+  "provenance_sha256": "d55b4573c9f9b241ef7d9bd96e09517d82c1c7327fadb86dbcc7ab702aeaa05f",
+  "provisional": true,
+  "requested_ids_hash_order": "sorted",
+  "requested_ids_sha256": "3f4918e1fa9de1b5128b1533c0bb673b4efb635d3146ceb87f0941e93d82bfce",
+  "source1_file": "dataset/train/train_source1.tsv",
+  "source1_sha256": "591af0e1dfeb65cab71ea6ee8cb69df00f92d6ba6fa79e05746c938775d14973",
+  "truth_sha256": null,
+  "workers": 16
+}

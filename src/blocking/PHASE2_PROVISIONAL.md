@@ -1,7 +1,11 @@
-# Provisional Phase 2 blocker
+# Phase 2 frozen blocker
 
-Status: **implementation available for development and `loop` experiments; not
-selected, frozen, or approved as a Phase 2 gate**
+Status: **frozen and approved by the passing Phase 2 gate**
+
+The selected configuration is `cap=50`, `source_floor=2`, and
+`rescue_quota=10` (with the remaining retrieval bounds recorded in
+`artifacts/blocking/phase2_blocker_freeze.json`). The formal gate is
+`artifacts/gates/phase_2.json`.
 
 The Phase 2 blocker is isolated in `src/blocking/phase2.py`. It does not modify
 the frozen `phase1-raw-v1` implementation or its artifacts.
@@ -60,20 +64,20 @@ incremental recall; source, country, script, and truth-cardinality slices; a
 deterministic 2,000-resample paired bootstrap; a recall/width Pareto frontier;
 runtime and peak RSS; and input/output fingerprints.
 
-## Selection guardrails
+## Selection evidence
 
-- Use labeled truth only for the frozen 25,000-ID `loop` split.
-- Do not run a provisional Phase 2 comparison on `report`.
-- A challenger is promotable only when its paired-bootstrap 95% lower bound is
-  above zero and it lies on the supported recall/width Pareto frontier.
-- Do not create the 400k matcher handoff, freeze a Phase 2 configuration, or
-  write `artifacts/gates/phase_2.json` until Phase 1 is green.
+- Labeled truth was used only on the frozen 25,000-ID `loop` split.
+- Raw-only link recall was `0.6241`; union retrieval reached `0.6945`.
+- The paired-bootstrap 95% lower bound was positive, and the selected point is
+  on the supported recall/width Pareto frontier.
+- The gate records script slices, France retrieval, unknown-code-point
+  preservation, resource/version hashes, and the focused-test result.
 
 ## Deterministic 400k fit handoff
 
-Phase 1 is now green. The fit sample is generated independently of blocker
-selection, using the same fixed country × truth-cardinality stratification as
-the earlier capacity sample:
+The fit sample was generated independently of blocker selection, using the
+same fixed country × truth-cardinality stratification as the earlier capacity
+sample:
 
 ```bash
 python3.11 -m src.blocking.phase2_freeze sample-fit \
@@ -83,12 +87,16 @@ python3.11 -m src.blocking.phase2_freeze sample-fit \
   --manifest artifacts/blocking/phase2_fit400k_manifest.json
 ```
 
-Candidate generation for those IDs must omit `--truth` and use the exact
-loop-selected `--cap`, `--source-floor`, and `--rescue-quota`. After that run,
-`python3.11 -m src.blocking.phase2_freeze freeze` binds the eligible loop
-report, the 400k sample manifest, and the unlabeled fit report. It refuses
-mismatched configs, indexes, normalizer/token hashes, sample hashes, or entity
-counts. This blocker freeze is separate from the team-wide Phase 2 gate.
+Candidate generation omitted `--truth` and used the selected configuration.
+The frozen output has 400,001 lines including its header: exactly one candidate
+row for each of the 400,000 requested fit entities. The freeze binds the
+eligible loop report, the 400k sample manifest, and the unlabeled fit report,
+and rejects mismatched configs, indices, normalizer/token hashes, sample
+hashes, or entity counts. The compact tracked evidence is
+`artifacts/blocking/phase2_blocker_freeze.json`,
+`artifacts/blocking/phase2_fit400k_report.json`, and
+`artifacts/gates/phase_2.json`; generated candidate and provenance TSVs remain
+local artifacts.
 
 ## Verification
 

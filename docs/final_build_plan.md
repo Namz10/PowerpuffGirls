@@ -149,11 +149,16 @@ Phase 4 is complete only when:
 
 ## Current implementation handoff
 
-Phase 1 is complete. Its evaluation, representation, candidate-generation,
-matcher/prediction, capacity, validation, and portal-probe evidence are
-recorded in the [Phase 1 handoff](phase1_handoff.md) and
-`artifacts/gates/phase_1.json`. The portal accepted and evaluated the
+Phases 1 and 2 are complete. Phase 1 evaluation, representation,
+candidate-generation, matcher/prediction, capacity, validation, and
+portal-probe evidence are recorded in the [Phase 1 handoff](phase1_handoff.md)
+and `artifacts/gates/phase_1.json`. The portal accepted and evaluated the
 predict-nothing probe (public score `0.056`); this confirms submission format,
 not matcher quality.
 
-Use reviewed implementation branches and preserve phase-gate evidence in `artifacts/gates/`. `artifacts/gates/phase_1.json` records the passing Phase 1 gate, so Phase 2 may proceed.
+Phase 2 records its frozen canonical SQLite blocker and 400,000-entity fit
+handoff in `artifacts/blocking/phase2_blocker_freeze.json` and
+`artifacts/blocking/phase2_fit400k_report.json`. `artifacts/gates/phase_2.json`
+is `passed`: it records `cap=50`, `source_floor=2`, `rescue_quota=10`, the
+25,000-entity loop selection evidence, and all required hashes. Phase 3 may
+proceed from this frozen handoff.
